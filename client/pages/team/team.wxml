@@ -1,0 +1,295 @@
+<!-- view class="Team" -->
+
+<view class="TopHalfRegion">
+  <!-- button class="FunctionBtn" size="mini" bindtap="GotoSelectTeam" data-selecttype="3">巴塞罗那</button -->
+
+  <view class="ViewTeam">
+    <view class="ViewTeamText">要查看的队伍: </view>
+    <button class="ViewTeamButton" size="mini" bindtap="GotoSelectTeam" data-selecttype="3">{{strTeamNameChn}}</button>
+    <view class="Split"></view>
+  </view>
+  <view class="SmallSplit"></view>
+
+  <view class="InfoBtn">
+    <view class="ViewPosText">查看位置属性: </view>
+    <button class="{{iInfoIndex==0?'InfoBtn1':'InfoBtn2'}}" bindtap="ChangeInfoBtn" data-index="0">{{strPositionA}}</button>
+    <button class="{{iInfoIndex==1?'InfoBtn1':'InfoBtn2'}}" bindtap="ChangeInfoBtn" data-index="1">{{strPositionB}}</button>
+    <button class="{{iInfoIndex==2?'InfoBtn1':'InfoBtn2'}}" bindtap="ChangeInfoBtn" data-index="2">{{strPositionC}}</button>
+    <view class="Split"></view>
+  </view>
+  <view class="SmallSplit"></view>
+
+  <view class="InfoData">
+    <view class="InfoDataLable">
+      <view class="Split"></view>
+      <view class="Lable1" wx:if="{{mRelated['Technique']==null}}">技术</view>
+      <view class="Lable2" wx:if="{{mRelated['Technique']==1}}">技术</view>
+      <view class="Lable1" wx:if="{{mRelated['Pass']==null}}">传球</view>
+      <view class="Lable2" wx:if="{{mRelated['Pass']==1}}">传球</view>
+      <view class="Lable1" wx:if="{{mRelated['Catch']==null}}">接球</view>
+      <view class="Lable2" wx:if="{{mRelated['Catch']==1}}">接球</view>
+      <view class="Lable1" wx:if="{{mRelated['Cross']==null}}">传中</view>
+      <view class="Lable2" wx:if="{{mRelated['Cross']==1}}">传中</view>
+      <view class="Lable1" wx:if="{{mRelated['Dribbling']==null}}">盘带</view>
+      <view class="Lable2" wx:if="{{mRelated['Dribbling']==1}}">盘带</view>
+      <view class="Lable1" wx:if="{{mRelated['Penalty']==null}}">点球</view>
+      <view class="Lable2" wx:if="{{mRelated['Penalty']==1}}">点球</view>
+      <view class="Lable1" wx:if="{{mRelated['OutLine']==null&&iIsGKPos==0}}">界外</view>
+      <view class="Lable2" wx:if="{{mRelated['OutLine']==1&&iIsGKPos==0}}">界外</view>
+      <view class="Lable1" wx:if="{{mRelated['Jump']==null&&iIsGKPos==1}}">弹跳</view>
+      <view class="Lable2" wx:if="{{mRelated['Jump']==1&&iIsGKPos==1}}">弹跳</view>
+    </view>
+
+    <view class="InfoDataValue">
+      <view class="Split"></view>
+      <view class="Value1" wx:if="{{mRelated['Technique']==null}}" style="color:{{mFontColor['Technique']}}">{{mAttribute['Technique']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Technique']==1}}" style="color:{{mFontColor['Technique']}}">{{mAttribute['Technique']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Pass']==null}}" style="color:{{mFontColor['Pass']}}">{{mAttribute['Pass']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Pass']==1}}" style="color:{{mFontColor['Pass']}}">{{mAttribute['Pass']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Catch']==null}}" style="color:{{mFontColor['Catch']}}">{{mAttribute['Catch']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Catch']==1}}" style="color:{{mFontColor['Catch']}}">{{mAttribute['Catch']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Cross']==null}}" style="color:{{mFontColor['Cross']}}">{{mAttribute['Cross']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Cross']==1}}" style="color:{{mFontColor['Cross']}}">{{mAttribute['Cross']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Dribbling']==null}}" style="color:{{mFontColor['Dribbling']}}">{{mAttribute['Dribbling']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Dribbling']==1}}" style="color:{{mFontColor['Dribbling']}}">{{mAttribute['Dribbling']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Penalty']==null}}" style="color:{{mFontColor['Penalty']}}">{{mAttribute['Penalty']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Penalty']==1}}" style="color:{{mFontColor['Penalty']}}">{{mAttribute['Penalty']}}</view>
+      <view class="Value1" wx:if="{{mRelated['OutLine']==null&&iIsGKPos==0}}" style="color:{{mFontColor['OutLine']}}">{{mAttribute['OutLine']}}</view>
+      <view class="Value2" wx:if="{{mRelated['OutLine']==1&&iIsGKPos==0}}" style="color:{{mFontColor['OutLine']}}">{{mAttribute['OutLine']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Jump']==null&&iIsGKPos==1}}" style="color:{{mFontColor['Jump']}}">{{mAttribute['Jump']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Jump']==1&&iIsGKPos==1}}" style="color:{{mFontColor['Jump']}}">{{mAttribute['Jump']}}</view>
+    </view>
+
+    <view class="InfoDataLable">
+      <view class="Split"></view>
+      <view class="Lable1" wx:if="{{mRelated['Shot']==null}}">射门</view>
+      <view class="Lable2" wx:if="{{mRelated['Shot']==1}}">射门</view>
+      <view class="Lable1" wx:if="{{mRelated['LongShot']==null}}">远射</view>
+      <view class="Lable2" wx:if="{{mRelated['LongShot']==1}}">远射</view>
+      <view class="Lable1" wx:if="{{mRelated['Head']==null}}">头球</view>
+      <view class="Lable2" wx:if="{{mRelated['Head']==1}}">头球</view>
+      <view class="Lable1" wx:if="{{mRelated['Tackling']==null}}">抢断</view>
+      <view class="Lable2" wx:if="{{mRelated['Tackling']==1}}">抢断</view>
+      <view class="Lable1" wx:if="{{mRelated['Marking']==null}}">盯人</view>
+      <view class="Lable2" wx:if="{{mRelated['Marking']==1}}">盯人</view>
+      <view class="Lable1" wx:if="{{mRelated['FreeKick']==null}}">定位</view>
+      <view class="Lable2" wx:if="{{mRelated['FreeKick']==1}}">定位</view>
+      <view class="Lable1" wx:if="{{mRelated['Corner']==null&&iIsGKPos==0}}">角球</view>
+      <view class="Lable2" wx:if="{{mRelated['Corner']==1&&iIsGKPos==0}}">角球</view>
+      <view class="Lable1" wx:if="{{mRelated['Agility']==null&&iIsGKPos==1}}">灵活</view>
+      <view class="Lable2" wx:if="{{mRelated['Agility']==1&&iIsGKPos==1}}">灵活</view>
+    </view>
+    <view class="InfoDataValue">
+      <view class="Split"></view>
+      <view class="Value1" wx:if="{{mRelated['Shot']==null}}" style="color:{{mFontColor['Shot']}}">{{mAttribute['Shot']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Shot']==1}}" style="color:{{mFontColor['Shot']}}">{{mAttribute['Shot']}}</view>
+      <view class="Value1" wx:if="{{mRelated['LongShot']==null}}" style="color:{{mFontColor['LongShot']}}">{{mAttribute['LongShot']}}</view>
+      <view class="Value2" wx:if="{{mRelated['LongShot']==1}}" style="color:{{mFontColor['LongShot']}}">{{mAttribute['LongShot']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Head']==null}}" style="color:{{mFontColor['Head']}}">{{mAttribute['Head']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Head']==1}}" style="color:{{mFontColor['Head']}}">{{mAttribute['Head']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Tackling']==null}}" style="color:{{mFontColor['Tackling']}}">{{mAttribute['Tackling']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Tackling']==1}}" style="color:{{mFontColor['Tackling']}}">{{mAttribute['Tackling']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Marking']==null}}" style="color:{{mFontColor['Marking']}}">{{mAttribute['Marking']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Marking']==1}}" style="color:{{mFontColor['Marking']}}">{{mAttribute['Marking']}}</view>
+      <view class="Value1" wx:if="{{mRelated['FreeKick']==null}}" style="color:{{mFontColor['FreeKick']}}">{{mAttribute['FreeKick']}}</view>
+      <view class="Value2" wx:if="{{mRelated['FreeKick']==1}}" style="color:{{mFontColor['FreeKick']}}">{{mAttribute['FreeKick']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Corner']==null&&iIsGKPos==0}}" style="color:{{mFontColor['Corner']}}">{{mAttribute['Corner']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Corner']==1&&iIsGKPos==0}}" style="color:{{mFontColor['Corner']}}">{{mAttribute['Corner']}}</view>
+       <view class="Value1" wx:if="{{mRelated['Agility']==null&&iIsGKPos==1}}" style="color:{{mFontColor['Agility']}}">{{mAttribute['Agility']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Agility']==1&&iIsGKPos==1}}" style="color:{{mFontColor['Agility']}}">{{mAttribute['Agility']}}</view>
+    </view>
+
+    <view class="InfoDataLable">
+      <view class="Split"></view>
+      <view class="Lable1" wx:if="{{mRelated['Aggression']==null}}">侵略</view>
+      <view class="Lable2" wx:if="{{mRelated['Aggression']==1}}">侵略</view>
+      <view class="Lable1" wx:if="{{mRelated['Anticipation']==null}}">预判</view>
+      <view class="Lable2" wx:if="{{mRelated['Anticipation']==1}}">预判</view>
+      <view class="Lable1" wx:if="{{mRelated['Brave']==null}}">勇敢</view>
+      <view class="Lable2" wx:if="{{mRelated['Brave']==1}}">勇敢</view>
+      <view class="Lable1" wx:if="{{mRelated['Composure']==null}}">镇定</view>
+      <view class="Lable2" wx:if="{{mRelated['Composure']==1}}">镇定</view>
+      <view class="Lable1" wx:if="{{mRelated['Concentration']==null}}">集中</view>
+      <view class="Lable2" wx:if="{{mRelated['Concentration']==1}}">集中</view>
+      <view class="Lable1" wx:if="{{mRelated['Vision']==null}}">视野</view>
+      <view class="Lable2" wx:if="{{mRelated['Vision']==1}}">视野</view>
+      <view class="Lable1" wx:if="{{mRelated['Decision']==null}}">决断</view>
+      <view class="Lable2" wx:if="{{mRelated['Decision']==1}}">决断</view>
+    </view>
+    <view class="InfoDataValue">
+      <view class="Split"></view>
+      <view class="Value1" wx:if="{{mRelated['Aggression']==null}}" style="color:{{mFontColor['Aggression']}}">{{mAttribute['Aggression']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Aggression']==1}}" style="color:{{mFontColor['Aggression']}}">{{mAttribute['Aggression']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Anticipation']==null}}" style="color:{{mFontColor['Anticipation']}}">{{mAttribute['Anticipation']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Anticipation']==1}}" style="color:{{mFontColor['Anticipation']}}">{{mAttribute['Anticipation']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Brave']==null}}" style="color:{{mFontColor['Brave']}}">{{mAttribute['Brave']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Brave']==1}}" style="color:{{mFontColor['Brave']}}">{{mAttribute['Brave']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Composure']==null}}" style="color:{{mFontColor['Composure']}}">{{mAttribute['Composure']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Composure']==1}}" style="color:{{mFontColor['Composure']}}">{{mAttribute['Composure']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Concentration']==null}}" style="color:{{mFontColor['Concentration']}}">{{mAttribute['Concentration']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Concentration']==1}}" style="color:{{mFontColor['Concentration']}}">{{mAttribute['Concentration']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Vision']==null}}" style="color:{{mFontColor['Vision']}}">{{mAttribute['Vision']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Vision']==1}}" style="color:{{mFontColor['Vision']}}">{{mAttribute['Vision']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Decision']==null}}" style="color:{{mFontColor['Decision']}}">{{mAttribute['Decision']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Decision']==1}}" style="color:{{mFontColor['Decision']}}">{{mAttribute['Decision']}}</view>
+    </view>
+
+    <view class="InfoDataLable">
+      <view class="Split"></view>
+      <view class="Lable1" wx:if="{{mRelated['Will']==null}}">意志</view>
+      <view class="Lable2" wx:if="{{mRelated['Will']==1}}">意志</view>
+      <view class="Lable1" wx:if="{{mRelated['Talent']==null}}">天赋</view>
+      <view class="Lable2" wx:if="{{mRelated['Talent']==1}}">天赋</view>
+      <view class="Lable1" wx:if="{{mRelated['Influence']==null}}">领袖</view>
+      <view class="Lable2" wx:if="{{mRelated['Influence']==1}}">领袖</view>
+      <view class="Lable1" wx:if="{{mRelated['Movement']==null}}">跑位</view>
+      <view class="Lable2" wx:if="{{mRelated['Movement']==1}}">跑位</view>
+      <view class="Lable1" wx:if="{{mRelated['Positioning']==null}}">守位</view>
+      <view class="Lable2" wx:if="{{mRelated['Positioning']==1}}">守位</view>
+      <view class="Lable1" wx:if="{{mRelated['Teamwork']==null}}">团队</view>
+      <view class="Lable2" wx:if="{{mRelated['Teamwork']==1}}">团队</view>
+      <view class="Lable1" wx:if="{{mRelated['WorkRate']==null}}">投入</view>
+      <view class="Lable2" wx:if="{{mRelated['WorkRate']==1}}">投入</view>
+    </view>
+    <view class="InfoDataValue">
+      <view class="Split"></view>
+      <view class="Value1" wx:if="{{mRelated['Will']==null}}" style="color:{{mFontColor['Will']}}">{{mAttribute['Will']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Will']==1}}" style="color:{{mFontColor['Will']}}">{{mAttribute['Will']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Talent']==null}}" style="color:{{mFontColor['Talent']}}">{{mAttribute['Talent']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Talent']==1}}" style="color:{{mFontColor['Talent']}}">{{mAttribute['Talent']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Influence']==null}}" style="color:{{mFontColor['Influence']}}">{{mAttribute['Influence']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Influence']==1}}" style="color:{{mFontColor['Influence']}}">{{mAttribute['Influence']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Movement']==null}}" style="color:{{mFontColor['Movement']}}">{{mAttribute['Movement']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Movement']==1}}" style="color:{{mFontColor['Movement']}}">{{mAttribute['Movement']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Positioning']==null}}" style="color:{{mFontColor['Positioning']}}">{{mAttribute['Positioning']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Positioning']==1}}" style="color:{{mFontColor['Positioning']}}">{{mAttribute['Positioning']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Teamwork']==null}}" style="color:{{mFontColor['Teamwork']}}">{{mAttribute['Teamwork']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Teamwork']==1}}" style="color:{{mFontColor['Teamwork']}}">{{mAttribute['Teamwork']}}</view>
+      <view class="Value1" wx:if="{{mRelated['WorkRate']==null}}" style="color:{{mFontColor['WorkRate']}}">{{mAttribute['WorkRate']}}</view>
+      <view class="Value2" wx:if="{{mRelated['WorkRate']==1}}" style="color:{{mFontColor['WorkRate']}}">{{mAttribute['WorkRate']}}</view>
+    </view>
+
+    <view class="{{iIsGKPos==0?'InfoDataLable':'DisableView'}}">
+      <view class="Split"></view>
+      <view class="Lable1" wx:if="{{mRelated['Acceleration']==null}}">加速</view>
+      <view class="Lable2" wx:if="{{mRelated['Acceleration']==1}}">加速</view>
+      <view class="Lable1" wx:if="{{mRelated['Agility']==null}}">灵活</view>
+      <view class="Lable2" wx:if="{{mRelated['Agility']==1}}">灵活</view>
+      <view class="Lable1" wx:if="{{mRelated['Balance']==null}}">平衡</view>
+      <view class="Lable2" wx:if="{{mRelated['Balance']==1}}">平衡</view>
+      <view class="Lable1" wx:if="{{mRelated['Jump']==null}}">弹跳</view>
+      <view class="Lable2" wx:if="{{mRelated['Jump']==1}}">弹跳</view>
+      <view class="Lable1" wx:if="{{mRelated['Speed']==null}}">速度</view>
+      <view class="Lable2" wx:if="{{mRelated['Speed']==1}}">速度</view>
+      <view class="Lable1" wx:if="{{mRelated['Endurance']==null}}">耐力</view>
+      <view class="Lable2" wx:if="{{mRelated['Endurance']==1}}">耐力</view>
+      <view class="Lable1" wx:if="{{mRelated['Strong']==null}}">强壮</view>
+      <view class="Lable2" wx:if="{{mRelated['Strong']==1}}">强壮</view>
+    </view>
+    <view class="{{iIsGKPos==0?'InfoDataValue':'DisableView'}}">
+      <view class="Split"></view>
+      <view class="Value1" wx:if="{{mRelated['Acceleration']==null}}" style="color:{{mFontColor['Acceleration']}}">{{mAttribute['Acceleration']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Acceleration']==1}}" style="color:{{mFontColor['Acceleration']}}">{{mAttribute['Acceleration']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Agility']==null}}" style="color:{{mFontColor['Agility']}}">{{mAttribute['Agility']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Agility']==1}}" style="color:{{mFontColor['Agility']}}">{{mAttribute['Agility']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Balance']==null}}" style="color:{{mFontColor['Balance']}}">{{mAttribute['Balance']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Balance']==1}}" style="color:{{mFontColor['Balance']}}">{{mAttribute['Balance']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Jump']==null}}" style="color:{{mFontColor['Jump']}}">{{mAttribute['Jump']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Jump']==1}}" style="color:{{mFontColor['Jump']}}">{{mAttribute['Jump']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Speed']==null}}" style="color:{{mFontColor['Speed']}}">{{mAttribute['Speed']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Speed']==1}}" style="color:{{mFontColor['Speed']}}">{{mAttribute['Speed']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Endurance']==null}}" style="color:{{mFontColor['Endurance']}}">{{mAttribute['Endurance']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Endurance']==1}}" style="color:{{mFontColor['Endurance']}}">{{mAttribute['Endurance']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Strong']==null}}" style="color:{{mFontColor['Strong']}}">{{mAttribute['Strong']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Strong']==1}}" style="color:{{mFontColor['Strong']}}">{{mAttribute['Strong']}}</view>
+    </view>
+
+    <view class="{{iIsGKPos==1?'InfoDataLable':'DisableView'}}">
+      <view class="Split"></view>
+      <view class="Lable1" wx:if="{{mRelated['StopAir']==null}}">制高</view>
+      <view class="Lable2" wx:if="{{mRelated['StopAir']==1}}">制高</view>
+      <view class="Lable1" wx:if="{{mRelated['CommandDefend']==null}}">指挥</view>
+      <view class="Lable2" wx:if="{{mRelated['CommandDefend']==1}}">指挥</view>
+      <view class="Lable1" wx:if="{{mRelated['StopCross']==null}}">截中</view>
+      <view class="Lable2" wx:if="{{mRelated['StopCross']==1}}">截中</view>
+      <view class="Lable1" wx:if="{{mRelated['Handling']==null}}">手控</view>
+      <view class="Lable2" wx:if="{{mRelated['Handling']==1}}">手控</view>
+      <view class="Lable1" wx:if="{{mRelated['OneOnOnes']==null}}">对一</view>
+      <view class="Lable2" wx:if="{{mRelated['OneOnOnes']==1}}">对一</view>
+      <view class="Lable1" wx:if="{{mRelated['Reflexes']==null}}">反应</view>
+      <view class="Lable2" wx:if="{{mRelated['Reflexes']==1}}">反应</view>
+      <view class="Lable1" wx:if="{{mRelated['RushingOut']==null}}">出击</view>
+      <view class="Lable2" wx:if="{{mRelated['RushingOut']==1}}">出击</view>
+    </view>
+    <view class="{{iIsGKPos==1?'InfoDataValue':'DisableView'}}">
+      <view class="Split"></view>
+      <view class="Value1" wx:if="{{mRelated['StopAir']==null}}" style="color:{{mFontColor['StopAir']}}">{{mAttribute['StopAir']}}</view>
+      <view class="Value2" wx:if="{{mRelated['StopAir']==1}}" style="color:{{mFontColor['StopAir']}}">{{mAttribute['StopAir']}}</view>
+      <view class="Value1" wx:if="{{mRelated['CommandDefend']==null}}" style="color:{{mFontColor['CommandDefend']}}">{{mAttribute['CommandDefend']}}</view>
+      <view class="Value2" wx:if="{{mRelated['CommandDefend']==1}}" style="color:{{mFontColor['CommandDefend']}}">{{mAttribute['CommandDefend']}}</view>
+      <view class="Value1" wx:if="{{mRelated['StopCross']==null}}" style="color:{{mFontColor['StopCross']}}">{{mAttribute['StopCross']}}</view>
+      <view class="Value2" wx:if="{{mRelated['StopCross']==1}}" style="color:{{mFontColor['StopCross']}}">{{mAttribute['StopCross']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Handling']==null}}" style="color:{{mFontColor['Handling']}}">{{mAttribute['Handling']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Handling']==1}}" style="color:{{mFontColor['Handling']}}">{{mAttribute['Handling']}}</view>
+      <view class="Value1" wx:if="{{mRelated['OneOnOnes']==null}}" style="color:{{mFontColor['OneOnOnes']}}">{{mAttribute['OneOnOnes']}}</view>
+      <view class="Value2" wx:if="{{mRelated['OneOnOnes']==1}}" style="color:{{mFontColor['OneOnOnes']}}">{{mAttribute['OneOnOnes']}}</view>
+      <view class="Value1" wx:if="{{mRelated['Reflexes']==null}}" style="color:{{mFontColor['Reflexes']}}">{{mAttribute['Reflexes']}}</view>
+      <view class="Value2" wx:if="{{mRelated['Reflexes']==1}}" style="color:{{mFontColor['Reflexes']}}">{{mAttribute['Reflexes']}}</view>
+      <view class="Value1" wx:if="{{mRelated['RushingOut']==null}}" style="color:{{mFontColor['RushingOut']}}">{{mAttribute['RushingOut']}}</view>
+      <view class="Value2" wx:if="{{mRelated['RushingOut']==1}}" style="color:{{mFontColor['RushingOut']}}">{{mAttribute['RushingOut']}}</view>
+    </view>
+    
+  </view>
+  <view class="SmallSplit"></view>
+</view>
+
+<view class="ButtomHalfRegion">
+
+  <view class="Instruction">请点选要查看哪个球员的属性:</view>
+  <view class="SmallSplit"></view>
+  
+  <view class='FootmanColumn'>
+    <view class="Split"></view>
+    <view class="Name" bindtap="SortFootmanData" data-type="1">名字</view>
+    <view class="PositionA" bindtap="SortFootmanData" data-type="2">位置</view>
+    <view class="Price" bindtap="SortFootmanData" data-type="3">身价</view>
+    <view class="Ability" bindtap="SortFootmanData" data-type="4">评分</view>
+    <view class="Number" bindtap="SortFootmanData" data-type="5">号码</view>
+    <view class="Space"></view>
+    <view class="Split"></view>
+  </view>
+
+  <scroll-view scroll-y="false" class="FootmanList" style="height: 220px;">
+    <view class="Footman" wx:for="{{aCellArray}}" wx:key="ID" wx:for-index="index" wx:for-item="item" bindtap="ClickFootman">
+
+      <view class='Footman1' wx:if="{{item.iSelStatus==0&&index%2==0}}">
+        <view class="Name" data-index="{{index}}">{{item.Name}}</view>
+        <view class="PositionA" data-index="{{index}}"> {{item.strPositionA}}</view>
+        <view class="Price" data-index="{{index}}"> {{item.iPrice}}M</view>
+        <view class="Ability" data-index="{{index}}"> {{item.iAbility}}</view>
+        <view class="Number" data-index="{{index}}">{{item.LikeNumber}}</view>
+        <view class="Space" data-index="{{index}}"></view>
+      </view>
+      <view class='Footman2' wx:elif="{{item.iSelStatus==0&&index%2==1}}">
+        <view class="Name" data-index="{{index}}">{{item.Name}}</view>
+        <view class="PositionA" data-index="{{index}}"> {{item.strPositionA}}</view>
+        <view class="Price" data-index="{{index}}"> {{item.iPrice}}M</view>
+        <view class="Ability" data-index="{{index}}"> {{item.iAbility}}</view>
+        <view class="Number" data-index="{{index}}">{{item.LikeNumber}}</view>
+        <view class="Space" data-index="{{index}}"></view>
+      </view>
+      <view class='Footman3' wx:elif="{{item.iSelStatus==1}}">
+        <view class="Name" data-index="{{index}}">{{item.Name}}</view>
+        <view class="PositionA" data-index="{{index}}"> {{item.strPositionA}}</view>
+        <view class="Price" data-index="{{index}}"> {{item.iPrice}}M</view>
+        <view class="Ability" data-index="{{index}}"> {{item.iAbility}}</view>
+        <view class="Number" data-index="{{index}}">{{item.LikeNumber}}</view>
+        <view class="Space" data-index="{{index}}"></view>
+      </view>
+      
+    </view>
+
+  </scroll-view>
+</view>
+
+<!-- /view -->

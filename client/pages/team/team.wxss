@@ -1,0 +1,260 @@
+
+/*
+.Team {
+  width:100px;
+  height:200px;
+}
+*/
+
+/*========================通用=============================================*/
+.SmallSplit {
+  height: 4px;
+  background-color:#FFFFFF;
+}
+
+.BigSplit {
+  height: 8px;
+  background-color:#FFFFFF;
+}
+.DisableView {
+  display: none;
+}
+
+/*========================第一层布局=============================================*/
+
+.TopHalfRegion
+{
+  width: 360px;
+  height: 252px;
+  background-color:#FFFFFF;
+}
+
+.ButtomHalfRegion
+{
+  width: 360px;
+  height: 260px;  
+  background-color:#FFFFFF;
+}
+
+
+
+/*========================第二层上半部分布局=============================================*/
+.FunctionBtn 
+{
+  color: #FFFFFF;
+  background-color:#58a4ef;
+  width:50%;
+  line-height:100%;
+}
+
+
+.ViewTeam
+{
+  width: 360px;
+  display: flex;
+  text-align: center; 
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+}
+.ViewTeam .ViewTeamText
+{
+  flex: 120px;
+  line-height:150%;
+  text-align: center; 
+  font-size: 14px;
+  color: #000000;
+  background-color:#FFFFFF;
+}
+.ViewTeam .ViewTeamButton
+{
+  width: 160px;
+  font-size: 14px;
+  text-align: center; 
+  background-color:#87CEFA;
+}
+.ViewTeam .Split {
+  width: 80px;
+}
+
+.InfoBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+}
+.InfoBtn .ViewPosText {
+  font-size: 14px;
+  flex: 120px;
+  text-align: center; 
+}
+
+.InfoBtn .InfoBtn1 {
+  font-size: 14px;
+  text-align: center; 
+  color: #FFFFFF;
+  background-color: #D2691E;
+  flex: 70px;
+  line-height:200%;
+}
+.InfoBtn .InfoBtn2 {
+  font-size: 14px;
+  text-align: center; 
+  flex: 70px;
+  line-height:200%;
+}
+.InfoBtn .Split {
+  flex: 30px;
+}
+
+.InfoData {
+  align-items: center;
+  justify-content: center;
+  text-align: center; 
+}
+
+.InfoData .Split {
+  width: 5px;
+}
+
+.InfoData .InfoDataLable {
+  display: flex;
+  font-size: 14px;
+  height: 18px;
+}
+.InfoData .InfoDataLable .Lable1 {
+  width: 50px;
+  background-color: #87CEFA;
+  /*background-color:#D3D3D3;*/
+}
+.InfoData .InfoDataLable .Lable2 {
+  width: 50px;
+  background-color: #87CEFA;
+  color:#D2691E;
+  font-weight: bold;
+  /*background-color: #FF8C00;*/
+  /*background-color:#DCDCDC;*/
+}
+
+/*border-radius: 10px;*/
+
+.InfoData .InfoDataValue {
+  display: flex;
+  font-size: 13px;
+  height: 18px;
+  /*color: #A9A9A9;*/
+}
+.InfoData .InfoDataValue .Value1 {
+  width: 50px;
+  background-color: #DCDCDC;
+  /*background-color: #00BFFF;*/
+  /*background-color:#D3D3D3;*/
+}
+.InfoData .InfoDataValue .Value2 {
+  width: 50px;
+  color:#D2691E;
+  background-color: #DCDCDC;
+  /*background-color: #FFA500;*/
+  /*background-color: #87CEFA;*/
+  /*background-color:#DCDCDC;*/
+}
+
+/*========================第二层下半部分布局=============================================*/
+
+.Instruction {
+  width: 360px;
+  line-height:200%;
+  /*background-color:#FFA500;*/
+  background-color:#87CEFA;/*浅蓝*/
+  /*background-color:#D2691E;深橙*/
+  text-align: center; 
+  font-size: 16px;
+  /*color: #FFFFFF;白色*/
+  color: #000000;/*黑色*/
+}
+
+
+.FootmanColumn {
+  display: flex;
+  background-color:#FFFFFF;
+  font-size: 13px;
+  text-align: center; 
+}
+.FootmanColumn .Split {
+  width: 5px;
+}
+.FootmanColumn .Name {
+  flex: 100px;
+}
+.FootmanColumn .Number {
+  flex: 40px;
+}
+.FootmanColumn .Price {
+  flex: 40px;
+}
+.FootmanColumn .Ability {
+  flex: 40px;
+}
+.FootmanColumn .PositionA {
+  flex: 50px;
+}
+.FootmanColumn .Space {
+  flex: 140;
+}
+
+.FootmanList {
+  width: 350px;
+  border-left:5px solid #FFFFFF;
+  border-right:5px solid #FFFFFF;
+}
+
+.FootmanList .Footman {
+  width: 335px;
+  line-height:120%;
+  text-align: left; 
+}
+
+.FootmanList .Footman .Footman1 {
+  display: flex;
+  background-color:#DCDCDC;
+}
+
+.FootmanList .Footman .Footman2 {
+  display: flex;
+  background-color:#FFFFFF;
+}
+.FootmanList .Footman .Footman3 {
+  display: flex;
+  background-color:#FFFF00;
+}
+
+
+.FootmanList .Footman .Name {
+  flex: 100px;
+  font-size: 16px;
+  color: #000000;
+  text-align: left; 
+}
+.FootmanList .Footman .Number {
+  flex: 40px;
+  font-size: 16px;
+  text-align: center; 
+}
+.FootmanList .Footman .Price {
+  flex: 40px;
+  font-size: 14px;
+  text-align: center; 
+}
+.FootmanList .Footman .Ability {
+  flex: 40px;
+  font-size: 14px;
+  text-align: center; 
+}
+.FootmanList .PositionA {
+  flex: 50px;
+  font-size: 14px;
+  text-align: center; 
+}
+.FootmanList .Footman .Space {
+  flex: 140;
+}

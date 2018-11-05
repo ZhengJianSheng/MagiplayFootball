@@ -1,0 +1,6 @@
+<!--pages/selectteam/selectteam.wxml-->
+
+<view class="TeamName" wx:for="{{aSelectArray}}" wx:key="ID" wx:for-index="index" wx:for-item="item" bindtap="ClickClub">
+  <button class="TeamName1" size="default"  data-index="{{index}}" wx:if="{{item.strTeamName!=strSelfTeamName||iSelectTeamType!=2}}">{{item.strChinese}}</button>
+  <view class="BigSplit" wx:if="{{item.strTeamName!=strSelfTeamName||iSelectTeamType!=2}}"></view>
+</view>

@@ -1,0 +1,26 @@
+/* pages/selectteam/selectteam.wxss */
+
+
+.FormationName {
+
+}
+
+.FormationName1 {
+  line-height:200%;
+  font-size: 16px;
+  text-align: center; 
+  width:50%;
+  color: #FFFFFF;
+  background-color: #D2691E;
+  margin-top:1.0rem;
+}
+
+.SmallSplit {
+  height: 4px;
+  background-color:#FFFFFF;
+}
+
+.BigSplit {
+  height: 8px;
+  background-color:#FFFFFF;
+}

@@ -1,0 +1,10 @@
+{
+	"miniprogramRoot": "./client",
+	"qcloudRoot": "./server",
+	"setting": {
+		"newFeature": true
+	},
+	"appid": "wx442add51d1cf89c0",
+	"projectname": "SuperFootball",
+	"condition": {}
+}

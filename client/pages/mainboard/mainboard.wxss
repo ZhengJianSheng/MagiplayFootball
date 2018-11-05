@@ -1,0 +1,88 @@
+/* pages/mainboard/mainboard.wxss */
+
+
+
+.ShowText1 {
+  width: 360px;
+  /*height: 200px;*/
+  line-height:300%;
+  /*background-color:#FFA500;*/
+  /*background-color:#87CEFA;浅蓝*/
+  /*background-color:#D2691E;深橙*/
+  /*background-color:#FFA500;钱橙*/
+  background-color:#FFFFFF;
+  text-align: center; 
+  font-size: 20px;
+  font-weight: bold;
+  /*color: #FFFFFF;白色*/
+  color: #D2691E;
+}
+
+.ShowText2 {
+  width: 360px;
+  line-height:200%;
+  background-color:#FFFFFF;
+  text-align: center; 
+  font-size: 16px;
+  /*font-weight: bold;*/
+  color: #000000;
+}
+
+.SmallSplit {
+  height: 4px;
+  background-color:#FFFFFF;
+}
+
+.BigSplit {
+  height: 4px;
+  background-color:#FFFFFF;
+}
+
+.DisableView {
+  display: none;
+}
+
+
+.TeamShow
+{
+  width: 360px;
+  display: flex;
+  text-align: center; 
+  align-items: center;
+  justify-content: center;
+  background-color:#FFFFFF;
+}
+.TeamShow .Split1 {
+  width: 50px;
+}
+.TeamShow .TeamShow1
+{
+  flex: 150px;
+  line-height:200%;
+  text-align: center; 
+  font-size: 16px;
+  color: #000000;
+  /*background-color:#FFFFFF;*/
+}
+.TeamShow .TeamShow2
+{
+  flex: 110px;
+  line-height:200%;
+  text-align: center; 
+  font-size: 16px;
+  font-weight:bold;
+  color: #D2691E;
+  /*background-color:#FFFFFF;*/
+}
+.TeamShow .Split2 {
+  width: 50px;
+}
+
+.FunctionBtn 
+{
+  color: #FFFFFF;
+  background-color:#58a4ef;
+  width:50%;
+  margin-top:1.0rem;
+  line-height:240%;
+}

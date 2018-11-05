@@ -1,0 +1,571 @@
+
+.TestColor{
+  background-color:#FF69B4;
+  background-color:#00FF00;
+  background-color:#00FFFF;
+}
+/*========================通用=============================================*/
+
+.FormationSetting {
+  width: 360px;
+  height: 400px;
+}
+
+.SmallSplit {
+  height: 4px;
+  background-color:#FFFFFF;
+}
+
+.BigSplit {
+  height: 8px;
+  background-color:#FFFFFF;
+}
+
+.Instruction {
+  width: 360px;
+  line-height:200%;
+  /*background-color:#FFA500;*/
+  background-color:#87CEFA;/*浅蓝*/
+  /*background-color:#D2691E;深橙*/
+  text-align: center; 
+  font-size: 13px;
+  /*color: #FFFFFF;白色*/
+  color: #000000;/*黑色*/
+}
+
+.TempText1 {
+  width: 360px;
+  line-height:200%;
+  text-align: center; 
+  font-size: 16px;
+  font-weight:bold;
+  color: #D2691E;
+  background-color:#FFFFFF;
+}
+
+.TempText2 {
+  width: 360px;
+  line-height:200%;
+  text-align: center; 
+  font-size: 14px;
+  color: #000000;
+  background-color:#FFFFFF;
+}
+
+
+/*==========================阵型按钮===========================================*/
+.FormationSetting .OperBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.FormationSetting .OperBtn .Btn {
+  font-size: 13px;
+  width: 65px;
+  text-align: center; 
+  background-color:#87CEFA;
+}
+.FormationSetting .OperBtn .Split {
+  width: 10px;
+}
+
+.FormationSetting .OperBtn .FormSelect {
+  font-size: 13px;
+  width:70px;
+  text-align: center; 
+  color: #FFFFFF;
+  background-color: #D2691E
+}
+.FormationSetting .OperBtn .FormNotSelect {
+  font-size: 13px;
+  width:70px;
+  text-align: center; 
+  color: #000000;
+  background-color: #FFFFFF
+}
+.OperBtn .Space {
+}
+
+.OperBtn .Load {
+}
+
+/*==========================功能按钮===========================================*/
+.FunctionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.FunctionBtn .Split {
+  flex: 4px;
+}
+.FunctionBtn .FunctionSelect {
+  flex: 65px;
+  font-size: 13px;
+  text-align: center; 
+  color: #FFFFFF;
+  background-color: #D2691E
+}
+.FunctionBtn .FunctionNotSelect {
+  flex: 65px;
+  font-size: 13px;
+  text-align: center; 
+}
+.FunctionBtn .MyCheckBoxGroup {
+  flex: 100px;
+  font-size: 13px;
+  text-align: center; 
+}
+.FunctionBtn .AssisantBtn {
+  flex: 100px;
+  font-size: 13px;
+  text-align: center; 
+  background-color:#87CEFA;
+}
+.FunctionBtn .Space1 {
+  flex: 100px;
+  text-align: center; 
+}
+.FunctionBtn .Space2 {
+  flex: 10px;
+}
+
+
+.FormCanvas {
+  width: 340px;
+  height: 236px;
+  background-color: #228B22;
+  border-left:10px solid #FFFFFF/*#228B22*/;
+  border-right:10px solid #FFFFFF/*#228B22*/;
+}
+
+
+/*=========================阵容界面============================================*/
+
+.GoField .ColumnTips {
+  display: flex;
+  font-size: 13px;
+  text-align: center; 
+  width: 340px;
+  border-left:5px solid #FFFFFF;
+  /*border-right:5px solid #FFFFFF; 不起作用*/
+}
+.GoField .ColumnTips .Number {
+  flex: 30px;
+}
+.GoField .ColumnTips .Name {
+  flex: 90px;
+}
+.GoField .ColumnTips .GoodPosition {
+  flex: 105px;
+}
+.GoField .ColumnTips .Ability {
+  flex: 30px;
+}
+.GoField .ColumnTips .Power {
+  flex: 30px;
+}
+.GoField .ColumnTips .Space {
+  flex: 55px;
+}
+
+.GoField .FootmanList {
+  width: 340px;
+  border-left:10px solid #FFFFFF;
+  border-right:10px solid #FFFFFF;
+}
+
+.GoField .FootmanList .Footman {
+  line-height:120%;
+  text-align: left; 
+}
+
+.GoField .FootmanList .Footman .Footman1 {
+  display: flex;
+  background-color:#DCDCDC;
+}
+
+.GoField .FootmanList .Footman .Footman2 {
+  display: flex;
+  background-color:#FFFFFF;
+}
+.GoField .FootmanList .Footman .Footman3 {
+  display: flex;
+  background-color:#FFFF00;
+}
+.GoField .FootmanList .Footman .Footman4 {
+  display: flex;
+  color: #C0C0C0;
+  background-color:#FFFFFF;
+}
+
+.GoField .FootmanList .Footman .Number {
+  flex: 30px;
+}
+.GoField .FootmanList .Footman .Name1 {
+  flex: 90px;
+  font-size: 16px;
+  color: #000000;
+}
+
+.GoField .FootmanList .Footman .Name2 {
+  flex: 90px;
+  font-size: 16px;
+  color: #D2691E;
+}
+.GoField .FootmanList .Footman .Name4 {
+  flex: 90px;
+  font-size: 16px;
+  color: #C0C0C0;
+}
+.GoField .FootmanList .Footman .Position {
+  flex: 35px;
+  font-size: 12px;
+  vertical-align: middle;
+  text-align: middle; 
+}
+.GoField .FootmanList .Footman .Ability {
+  flex: 30px;
+  font-size: 13px;
+  vertical-align: middle;
+}
+.GoField .FootmanList .Footman .Power {
+  flex: 30px;
+  font-size: 13px;
+}
+
+.GoField .FootmanList .Footman .Space {
+  flex: 55px;
+}
+
+
+
+/*=========================策略界面============================================*/
+.OperBtn {
+  display: flex;
+}
+.OperBtn .Btn {
+  font-size: 16px;
+  text-align: center; 
+  background-color:#87CEFA;
+}
+.OperBtn .Split {
+  width: 10px;
+}
+.OperBtn .FormSelect {
+  font-size: 16px;
+  text-align: center; 
+  color: #FFFFFF;
+  background-color: #D2691E
+}
+.OperBtn .FormNotSelect {
+  font-size: 16px;
+  text-align: center; 
+}
+
+
+.DataShow {
+  display: flex;
+  background-color: #FFFFFF;
+  border-left:10px solid #FFFFFF;
+  border-right:10px solid #FFFFFF;
+  align-items: center;
+  justify-content: center;
+  line-height:100%;
+}
+
+.DataShow .Text1 {
+  flex: 3;
+  font-size: 15px;
+  text-align: right; 
+  font-weight:bold;
+  color: 	#4169E1;
+}
+.DataShow .Number {
+  flex: 1;
+  font-size: 17px;
+  text-align: center; 
+  color: 	#008000;
+  font-weight:bold;
+}
+.DataShow .Text2 {
+  flex: 6;
+  font-size: 13px;
+  text-align: left; 
+}
+
+.DataShow .Text3 {
+  flex: 2;
+  font-size: 17px;
+  text-align: center; 
+  color: 	#008000;
+  font-weight:bold;
+}
+.DataShow .Text4 {
+  flex: 5;
+  font-size: 13px;
+  text-align: left; 
+}
+
+.SetStrategy .Options5Setting {
+  display: flex;
+  width: 360px;
+  line-height:200%;
+  color: #000000;/*黑色*/
+  background-color:#87CEFA;/*浅蓝*/
+  align-items: center;
+  justify-content: center;
+  text-align: center; 
+}
+
+.SetStrategy .Options5Setting .Options5Instruction {
+  width: 75px;
+  font-size: 15px;
+  text-align: left; 
+  margin-left: 10px;
+}
+
+.SetStrategy .Options5Setting .Options5Select {
+  width: 56px;
+  height: 30px;
+  font-size: 13px;
+  line-height:250%;
+  color: #FFFFFF;
+  background-color: #D2691E;
+}
+.SetStrategy .Options5Setting .Options5NotSelect {
+  width: 56px;
+  height: 30px;
+  font-size: 13px;
+  line-height:250%;
+}
+.SetStrategy .Options5Setting .Space {
+  width: 5px;
+}
+
+.SetStrategy .Options3Setting {
+  display: flex;
+  width: 360px;
+  line-height:200%;
+  color: #000000;/*黑色*/
+  background-color:#87CEFA;/*浅蓝*/
+  align-items: center;
+  justify-content: center;
+  text-align: center; 
+}
+
+.SetStrategy .Options3Setting .Options3Instruction {
+  width: 100px;
+  font-size: 16px;
+  text-align: left; 
+  margin-left: 10px;
+}
+
+.SetStrategy .Options3Setting .Options3Select {
+  width: 60px;
+  height: 30px;
+  font-size: 14px;
+  margin-left: 5px;
+  line-height:210%;
+  color: #FFFFFF;
+  background-color: #D2691E;
+}
+.SetStrategy .Options3Setting .Options3NotSelect {
+  width: 60px;
+  height: 30px;
+  font-size: 14px;
+  margin-left: 5px;
+  line-height:210%;
+}
+.SetStrategy .Options3Setting .Space {
+  width: 80px;
+}
+
+.SetStrategy .PosWidthText {
+  display: flex;
+  width: 360px;
+  line-height:120%;
+  background-color:#FFFFFF;
+  align-items: center;
+  justify-content: center;
+}
+
+.SetStrategy .PosWidthText .Text1 {
+  flex: 110px;
+  font-size: 15px;
+  text-align: right; 
+  font-weight:bold;
+  color: 	#4169E1;
+}
+.SetStrategy .PosWidthText .Text2 {
+  flex: 250px;
+  font-size: 13px;
+  text-align: left; 
+  color: #000000;
+  margin-left: 10px;
+}
+
+/*=========================进攻界面============================================*/
+
+.OpponentShow
+{
+  width: 360px;
+  display: flex;
+  text-align: center; 
+  align-items: center;
+  justify-content: center;
+}
+.OpponentShow .OpponentShow1
+{
+  flex: 130px;
+  text-align: center; 
+  font-size: 13px;
+  color: #000000;
+  background-color:#FFFFFF;
+}
+.OpponentShow .OpponentShow2
+{
+  flex: 140px;
+  text-align: left; 
+  font-size: 13px;
+  font-weight:bold;
+  color: #D2691E;
+  background-color:#FFFFFF;
+}
+.OpponentShow .ChangeBtn {
+  width: 70px;
+  font-size: 13px;
+  text-align: center; 
+  background-color:#87CEFA;
+}
+.OpponentShow .Split {
+  width: 10px;
+}
+.DisableView {
+  display: none;
+}
+
+.Routine {
+  
+}
+.RoutineList {
+  width: 360px;
+  align-items: center;
+  justify-content: center;
+}
+
+.RoutineList .Routine {
+  line-height:120%;
+  text-align: left; 
+}
+
+.RoutineList .Routine .Routine1 {
+  display: flex;
+  /*background-color:#DCDCDC;*/
+  /*background-color:#0052A1;*/
+  background-color:#DCDCDC;
+}
+.RoutineList .Routine .Routine1Desc {
+  /*background-color:#DCDCDC;*/
+  /*background-color:#0052A1;*/
+  background-color:#DCDCDC;
+  
+  font-size: 13px;
+  text-align: left; 
+  border-left:10px solid #DCDCDC;
+  border-right:10px solid #DCDCDC;
+}
+
+.RoutineList .Routine .Routine2 {
+  display: flex;
+  background-color:#FFFFFF;
+  /*background-color:#FFFFFF;*/
+  /*background-color:#A31949;*/
+}
+.RoutineList .Routine .Routine2Desc {
+  background-color:#FFFFFF;
+   /*background-color:#FFFFFF;*/
+   /*background-color:#A31949;*/
+  font-size: 13px;
+  text-align: left; 
+  border-left:10px solid #FFFFFF;
+  border-right:10px solid #FFFFFF;
+}
+/*总共360px，下面加起来总和要等于360*/
+.RoutineList .Routine .Name {
+  flex: 80px;
+  font-size: 13px;
+  /*font-weight:bold;*/
+  text-align: center; 
+  color:#D2691E;
+}
+.RoutineList .Routine .JoinList {
+  flex: 130px;
+  font-size: 12px;
+  vertical-align: middle;
+  text-align: center; 
+}
+.RoutineList .Routine .Rate {
+  flex: 40px;
+  font-size: 14px;
+  text-align: center; 
+}
+.RoutineList .Routine .RateMarking {
+  flex: 40px;
+  font-size: 14px;
+  text-align: center; 
+  color:#1E90FF;
+}
+.RoutineList .Routine .UsedCount {
+  flex: 30px;
+  font-size: 16px;
+  text-align: center; 
+  color:#D2691E;
+}
+.RoutineList .Routine .BtnAdd {
+  flex: 40px;
+  font-size: 10px;
+  font-weight:bold;
+  text-align: center; 
+  color:#D2691E;
+}
+.RoutineList .Routine .BtnReduce {
+  flex: 40px;
+  font-size: 10px;
+  font-weight:bold;
+  text-align: center; 
+  color:#D2691E;
+}
+.RoutineList .Routine  .Space {
+  flex: 0px;  /*前后各一个*/
+}
+
+
+
+.RoutineInstruction {
+  display: flex;
+  background-color:#FFFFFF;
+  font-size: 13px;
+  text-align: center; 
+}
+.RoutineInstruction .Name {
+  flex: 80px;
+}
+.RoutineInstruction .JoinList {
+  flex: 130px;
+}
+.RoutineInstruction .Rate {
+  flex: 40px;
+}
+.RoutineInstruction .AttackCount {
+  flex: 30px;
+}
+.RoutineInstruction .BtnAdd {
+  flex: 40px;
+}
+.RoutineInstruction .BtnReduce {
+  flex: 40px;
+}
+.RoutineInstruction .Space {
+  flex: 0;
+}

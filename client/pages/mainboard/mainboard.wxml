@@ -1,0 +1,27 @@
+<!--pages/mainboard/mainboard.wxml-->
+
+<view class="BigSplit"></view>
+<view class="ShowText1">欢迎加入 幻竞足球</view>
+<view class="ShowText2">请选择队伍，设置阵型和战术</view>
+<view class="ShowText2">战胜其他对手，赢得冠军！</view>
+
+<button class="FunctionBtn" size="default" bindtap="GotoSelectTeam" data-selecttype="1">{{strSelfTips}}</button>
+<view class="BigSplit"></view>
+
+<button class="FunctionBtn" size="default" bindtap="GotoSelectTeam" data-selecttype="2">{{strOpponentTips}}</button>
+<view class="BigSplit"></view>
+
+<button class="FunctionBtn" size="default" bindtap="GotoTeam" >查看队伍阵容</button>
+<view class="BigSplit"></view>
+
+<button class="FunctionBtn" size="default" bindtap="GotoFormation" >设置阵型和战术</button>
+<view class="BigSplit"></view>
+
+<button class="FunctionBtn" size="default" bindtap="GotoMatch" >{{strMatchTips}}</button>
+<view class="BigSplit"></view>
+
+<button class="{{iInMatch?'FunctionBtn':'DisableView'}}" size="default" bindtap="AbandonMatch" >放弃比赛</button>
+<view class="BigSplit"></view>
+
+
+

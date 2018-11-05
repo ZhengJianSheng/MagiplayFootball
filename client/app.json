@@ -1,0 +1,19 @@
+{
+  "pages":[
+    "pages/mainboard/mainboard",
+    "pages/match/match",
+    "pages/formation/formation",
+    "pages/team/team",
+    "pages/selectteam/selectteam",
+    "pages/selectformation/selectformation",
+    "pages/index/index",
+    "pages/addCgi/addCgi"
+  ],
+  "window":{
+    "backgroundColor":"#F6F6F6",
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "幻竞足球",
+    "navigationBarTextStyle":"black"
+  }
+}

@@ -1,0 +1,335 @@
+<!--pages/formation/formation.wxml-->
+
+<view class="FormationSetting">
+  <view class="{{iFunctionIndex<=2?'OperBtn':'DisableView'}}">
+    <button class="{{iSelFormIndex==0?'FormSelect':'FormNotSelect'}}" size="mini" bindtap="ChangeSelFormIndex" data-index="0">阵型A</button>
+    <button class="{{iSelFormIndex==1?'FormSelect':'FormNotSelect'}}" size="mini" bindtap="ChangeSelFormIndex" data-index="1">阵型B</button>
+    <button class="{{iSelFormIndex==2?'FormSelect':'FormNotSelect'}}" size="mini" bindtap="ChangeSelFormIndex" data-index="2">阵型C</button>
+    <view class="Split"></view>
+    <button class="Btn" size="mini" bindtap="SelectFormation" >选阵</button>
+    <button class="Btn" size="mini" bindtap="DoSave">保存</button>
+  </view>
+  <view class="{{iFunctionIndex>2?'OpponentShow':'DisableView'}}">
+    <view class="OpponentShow1">下一场对手: </view>
+    <view class="OpponentShow2">{{strOpponentChinese}}</view>
+    <button class="ChangeBtn" size="mini" bindtap="DoSave">保存</button>
+  </view>
+
+  <view class="SmallSplit"></view>
+  <canvas class="FormCanvas" canvas-id="formation" bindtap="ClickFormationPoint"></canvas>
+
+  <view class="SmallSplit"></view>
+  <view class="FunctionBtn">
+    <view class="Split"></view>
+    <button class="{{iFunctionIndex==0?'FunctionSelect':'FunctionNotSelect'}}" size="mini" bindtap="ChangeFunctionIndex" data-index="0">上阵</button>
+    <view class="Split"></view>
+    <button class="{{iFunctionIndex==1?'FunctionSelect':'FunctionNotSelect'}}" size="mini" bindtap="ChangeFunctionIndex" data-index="1">策略</button>
+    <view class="Split"></view>
+    <button class="{{iFunctionIndex==2?'FunctionSelect':'FunctionNotSelect'}}" size="mini" bindtap="ChangeFunctionIndex" data-index="2">进攻</button>
+    <view class="Split"></view>
+    <button class="{{iFunctionIndex==3?'FunctionSelect':'FunctionNotSelect'}}" size="mini" bindtap="ChangeFunctionIndex" data-index="3">防守</button>
+    <view class="Split"></view>
+    
+    <button class="AssisantBtn" wx:if="{{iFunctionIndex==0&&iInMatch==0}}" size="mini" bindtap="AssisantSelectFootman">助教选人</button>
+    <checkbox-group class="MyCheckBoxGroup" wx:if="{{iFunctionIndex==2&&iInMatch==0}}"  bindchange="CheckBoxChange">
+      <checkbox value="Marked" checked="{{iOpponentMarked}}">对方盯防</checkbox>
+    </checkbox-group>
+
+    <view class="Space1" wx:if="{{(iFunctionIndex==0&&iInMatch==1)||iFunctionIndex==1||iFunctionIndex==3||(iFunctionIndex==2&&iInMatch==1)}}" ></view>
+    <view class="Space2"></view>
+
+  </view>
+
+  <!-- 上阵界面 -->
+  <view class="{{iFunctionIndex==0?'GoField':'DisableView'}}">
+    <view class="SmallSplit"></view>
+    <view class="Instruction">请点选下面球员，再点上面阵型中的圆点位置:</view>
+
+    <view class='ColumnTips' style="height: 15px;">
+        <view class="Number" bindtap="SortCellData" data-type="1">号码</view>
+        <view class="Name" bindtap="SortCellData" data-type="2">名字</view>
+        <view class="GoodPosition" bindtap="SortCellData" data-type="3">熟悉位置</view>
+        <view class="Ability" bindtap="SortCellData" data-type="4">能力</view>
+        <view class="Power" bindtap="SortCellData" data-type="5">体力</view>
+        <view class="Space"></view>
+      </view>
+
+    <view class="SmallSplit"></view>
+    <scroll-view scroll-y="false" class="FootmanList" style="height: 190px;">
+      <view class="Footman" wx:for="{{aCellArray}}" wx:key="ID" wx:for-index="index" wx:for-item="item" bindtap="ClickFootman">
+
+        <view class='Footman1' wx:if="{{item.iSelStatus==0&&index%2==0&&item.iIsRelpaced==0}}">
+          <view class="Number" data-index="{{index}}">{{item.LikeNumber}}</view>
+          <view class="Name1" data-index="{{index}}" wx:if="{{item.IsInField==0}}"> {{item.Name}}</view>
+          <view class="Name2" data-index="{{index}}" wx:elif="{{item.IsInField==1}}"> {{item.Name}}</view>
+          <view class="Position" data-index="{{index}}"> {{item.PositionA}}</view>
+          <view class="Position" data-index="{{index}}"> {{item.PositionB}}</view>
+          <view class="Position" data-index="{{index}}"> {{item.PositionC}}</view>
+          <view class="Ability"> {{item.Ability}}</view>
+          <view class="Power">{{item.strPhysicalPower}}</view>
+          <view class="Space" data-index="{{index}}"></view>
+        </view>
+        <view class='Footman2' wx:elif="{{item.iSelStatus==0&&index%2==1&&item.iIsRelpaced==0}}">
+          <view class="Number" data-index="{{index}}">{{item.LikeNumber}}</view>
+          <view class="Name1" data-index="{{index}}" wx:if="{{item.IsInField==0}}"> {{item.Name}}</view>
+          <view class="Name2" data-index="{{index}}" wx:elif="{{item.IsInField==1}}"> {{item.Name}}</view>
+          <view class="Position" data-index="{{index}}"> {{item.PositionA}}</view>
+          <view class="Position" data-index="{{index}}"> {{item.PositionB}}</view>
+          <view class="Position" data-index="{{index}}"> {{item.PositionC}}</view>
+          <view class="Ability"> {{item.Ability}}</view>
+          <view class="Power">{{item.strPhysicalPower}}</view>
+          <view class="Space" data-index="{{index}}"></view>
+        </view>
+        <view class='Footman3' wx:elif="{{item.iSelStatus==1&&item.iIsRelpaced==0}}">
+          <view class="Number" data-index="{{index}}">{{item.LikeNumber}}</view>
+          <view class="Name1" data-index="{{index}}" wx:if="{{item.IsInField==0}}"> {{item.Name}}</view>
+          <view class="Name2" data-index="{{index}}" wx:elif="{{item.IsInField==1}}"> {{item.Name}}</view>
+          <view class="Position" data-index="{{index}}"> {{item.PositionA}}</view>
+          <view class="Position" data-index="{{index}}"> {{item.PositionB}}</view>
+          <view class="Position" data-index="{{index}}"> {{item.PositionC}}</view>
+          <view class="Ability"> {{item.Ability}}</view>
+          <view class="Power">{{item.strPhysicalPower}}</view>
+          <view class="Space" data-index="{{index}}"></view>
+        </view>
+        <view class='Footman4' wx:elif="{{item.iIsRelpaced==1}}">
+          <view class="Number" data-index="{{index}}">{{item.LikeNumber}}</view>
+          <view class="Name4" data-index="{{index}}"> {{item.Name}}</view>
+          <view class="Position" data-index="{{index}}"> {{item.PositionA}}</view>
+          <view class="Position" data-index="{{index}}"> {{item.PositionB}}</view>
+          <view class="Position" data-index="{{index}}"> {{item.PositionC}}</view>
+          <view class="Ability"> {{item.Ability}}</view>
+          <view class="Power">{{item.strPhysicalPower}}</view>
+          <view class="Space" data-index="{{index}}"></view>
+        </view>
+        
+      </view>
+
+    </scroll-view>
+  </view>
+
+  <!-- 策略界面 -->
+  <view class="{{iFunctionIndex==1?'SetStrategy':'DisableView'}}">
+    <scroll-view scroll-y="false" class="StrategyScroll" style="height: 240px;">
+
+      <!-- 战术心态 -->
+      <view class="SmallSplit"></view>
+      <view class="Options5Setting">
+        <view class="Options5Instruction">战术心态</view>
+        <button class="{{iMentalIndex==0?'Options5Select':'Options5NotSelect'}}" bindtap="ChangeMentalIndex" data-index="0">大巴</button>
+        <button class="{{iMentalIndex==1?'Options5Select':'Options5NotSelect'}}" bindtap="ChangeMentalIndex" data-index="1">防守</button>
+        <button class="{{iMentalIndex==2?'Options5Select':'Options5NotSelect'}}" bindtap="ChangeMentalIndex" data-index="2">均衡</button>
+        <button class="{{iMentalIndex==3?'Options5Select':'Options5NotSelect'}}" bindtap="ChangeMentalIndex" data-index="3">进攻</button>
+        <button class="{{iMentalIndex==4?'Options5Select':'Options5NotSelect'}}" bindtap="ChangeMentalIndex" data-index="4">全攻</button>
+        <view class="Space"></view>
+      </view>
+
+      <view class="BigSplit"></view>
+      <view class="DataShow">
+        <view class="Text1">进攻点数：</view>
+        <view class="Number">{{iAttackPoint}}</view>
+        <view class="Text2">每5分钟发起的进攻次数</view>
+        <view class="Space"></view>
+      </view>
+
+      <view class="BigSplit"></view>
+      <view class="DataShow">
+        <view class="Text1">防守点数：</view>
+        <view class="Number">{{iDefendPoint}}</view>
+        <view class="Text2">可以部署多少个重点防御对象</view>
+        <view class="Space"></view>
+      </view>
+      <view class="BigSplit"></view>
+
+      <!-- 节奏快慢 -->
+      <view class="SmallSplit"></view>
+      <view class="Options5Setting">
+        <view class="Options5Instruction">节奏快慢</view>
+        <button class="{{iRhythmIndex==0?'Options5Select':'Options5NotSelect'}}" bindtap="ChangeRhythmIndex" data-index="0">很慢</button>
+        <button class="{{iRhythmIndex==1?'Options5Select':'Options5NotSelect'}}" bindtap="ChangeRhythmIndex" data-index="1">慢</button>
+        <button class="{{iRhythmIndex==2?'Options5Select':'Options5NotSelect'}}" bindtap="ChangeRhythmIndex" data-index="2">均衡</button>
+        <button class="{{iRhythmIndex==3?'Options5Select':'Options5NotSelect'}}" bindtap="ChangeRhythmIndex" data-index="3">快</button>
+        <button class="{{iRhythmIndex==4?'Options5Select':'Options5NotSelect'}}" bindtap="ChangeRhythmIndex" data-index="4">很快</button>
+        <view class="Space"></view>
+      </view>
+
+      <view class="BigSplit"></view>
+      <view class="DataShow">
+        <view class="Text1">进攻套路：</view>
+        <view class="Number">{{iAttackRoutineCount}}</view>
+        <view class="Text2">节奏快慢决定进攻套路能否进行</view>
+        <view class="Space"></view>
+      </view>
+
+      <view class="BigSplit"></view>
+      <view class="DataShow">
+        <view class="Text1">体力消耗：</view>
+        <view class="Text3">{{strConsumeDesc}}</view>
+        <view class="Text4"></view>
+      </view>
+      <view class="BigSplit"></view>
+
+      <!-- 站位宽度 -->
+      <view class="SmallSplit"></view>
+      <view class="Options3Setting">
+        <view class="Options3Instruction">站位宽度</view>
+        <button class="{{iPosWidthIndex==0?'Options3Select':'Options3NotSelect'}}" bindtap="ChangePosWidthIndex" data-index="0">收缩</button>
+        <button class="{{iPosWidthIndex==1?'Options3Select':'Options3NotSelect'}}" bindtap="ChangePosWidthIndex" data-index="1">均衡</button>
+        <button class="{{iPosWidthIndex==2?'Options3Select':'Options3NotSelect'}}" bindtap="ChangePosWidthIndex" data-index="2">拉开</button>
+        <view class="Space"></view>
+      </view>
+      <view class="SmallSplit"></view>
+      <view class="PosWidthText">
+        <view class="Text1">进攻有利：</view>
+        <view class="Text2">{{strPosWidthDesc1}}</view>
+      </view>
+      <view class="PosWidthText">
+        <view class="Text1">进攻不利：</view>
+        <view class="Text2">{{strPosWidthDesc2}}</view>
+      </view>
+      <view class="PosWidthText">
+        <view class="Text1">防守有利：</view>
+        <view class="Text2">{{strPosWidthDesc3}}</view>
+      </view>
+      <view class="PosWidthText">
+        <view class="Text1">防守不利：</view>
+        <view class="Text2">{{strPosWidthDesc4}}</view>
+      </view>
+
+      <!-- 防线深度 -->
+      <view class="SmallSplit"></view>
+      <view class="Options3Setting">
+        <view class="Options3Instruction">防线深度</view>
+        <button class="{{iDefendDepthIndex==0?'Options3Select':'Options3NotSelect'}}" bindtap="ChangeDefendDepthIndex" data-index="0">后撤</button>
+        <button class="{{iDefendDepthIndex==1?'Options3Select':'Options3NotSelect'}}" bindtap="ChangeDefendDepthIndex" data-index="1">均衡</button>
+        <button class="{{iDefendDepthIndex==2?'Options3Select':'Options3NotSelect'}}" bindtap="ChangeDefendDepthIndex" data-index="2">前压</button>
+        <view class="Space"></view>
+      </view>
+      <view class="SmallSplit"></view>
+      <view class="PosWidthText">
+        <view class="Text1">进攻有利：</view>
+        <view class="Text2">{{strDefendDepthDesc1}}</view>
+      </view>
+      <view class="PosWidthText">
+        <view class="Text1">进攻不利：</view>
+        <view class="Text2">{{strDefendDepthDesc2}}</view>
+      </view>
+      <view class="PosWidthText">
+        <view class="Text1">防守有利：</view>
+        <view class="Text2">{{strDefendDepthDesc3}}</view>
+      </view>
+      <view class="PosWidthText">
+        <view class="Text1">防守不利：</view>
+        <view class="Text2">{{strDefendDepthDesc4}}</view>
+      </view>
+
+    </scroll-view>
+  </view>
+
+  <!-- 进攻界面 -->
+  <view class="{{iFunctionIndex==2?'Routine':'DisableView'}}">
+    <view class="SmallSplit"></view>
+
+    <view class="Instruction">请选择要使用的进攻套路： （剩余 {{iLeftAttackPoint}}）</view>
+    <view class="SmallSplit"></view>
+
+    <view class='RoutineInstruction'>
+      <view class="Name" bindtap="SortAttackRoutine" data-type="1">套路名</view>
+      <view class="JoinList">主要参与成员</view>
+      <view class="Rate" bindtap="SortAttackRoutine" data-type="2">成功率</view>
+      <view class="AttackCount" bindtap="SortAttackRoutine" data-type="3">次数</view>
+      <view class="BtnAdd">增加</view>
+      <view class="BtnReduce">减少</view>
+      <view class="Space"></view>
+    </view>
+    <scroll-view scroll-y="false" class="RoutineList" style="height: 185px;">
+      <view class="Routine" wx:for="{{aRoutineArray}}" wx:key="ID" wx:for-index="index" wx:for-item="item">
+        <view class='Routine1' wx:if="{{index%2==0}}">
+          <view class="Space"></view>
+          <view class="Name"> {{item.strRoutineName}}</view>
+          <view class="JoinList"> {{item.strJoinList}}</view>
+          <view class="Rate" wx:if="{{item.iIsMarking==0}}"> {{item.fRate}}%</view>
+          <view class="RateMarking"  wx:elif="{{item.iIsMarking==1}}"> {{item.fRate}}%</view>
+          <view class="UsedCount"> {{item.iAttackCount}}</view>
+          <button class="BtnAdd" bindtap="AddAttackCount" size="mini" data-strroutinename="{{item.strRoutineName}}">+</button>
+          <button class="BtnReduce" bindtap="ReduceAttackCount" size="mini" data-strroutinename="{{item.strRoutineName}}">-</button>
+          <view class="Space"></view>
+        </view>
+        <view class='Routine1Desc' wx:if="{{index%2==0}}">[{{item.strName}}] {{item.strDesc}}</view>
+
+        <view class='Routine2' wx:if="{{index%2==1}}">
+          <view class="Space"></view>
+          <view class="Name"> {{item.strRoutineName}}</view>
+          <view class="JoinList"> {{item.strJoinList}}</view>
+          <view class="Rate" wx:if="{{item.iIsMarking==0}}"> {{item.fRate}}%</view>
+          <view class="RateMarking"  wx:elif="{{item.iIsMarking==1}}"> {{item.fRate}}%</view>
+          <view class="UsedCount"> {{item.iAttackCount}}</view>
+          <button class="BtnAdd" bindtap="AddAttackCount" size="mini" data-strroutinename="{{item.strRoutineName}}">+</button>
+          <button class="BtnReduce" bindtap="ReduceAttackCount" size="mini" data-strroutinename="{{item.strRoutineName}}">-</button>
+          <view class="Space"></view>
+        </view>
+        <view class='Routine2Desc' wx:if="{{index%2==1}}">[{{item.strName}}] {{item.strDesc}}</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 防守界面 -->
+  <view class="{{iFunctionIndex==3?'Defend':'DisableView'}}">
+    <view class="SmallSplit"></view>
+
+    <view class="Instruction">请从上面阵型中点择要盯防的人物： （剩余 {{iLeftDefendPoint}}）</view>
+    <view class="TempText2">{{strMarkingText}}</view>
+    <!-- view class="SmallSplit"></view -->
+
+
+    <view class="Instruction">请选择要重点防御的进攻套路： （剩余 {{iLeftDefendPoint}}）</view>
+    <view class="SmallSplit"></view>
+
+    <view class='RoutineInstruction'>
+      <view class="Name" bindtap="SortDefendRoutine" data-type="1">套路名</view>
+      <view class="JoinList">参与成员</view>
+      <view class="Rate" bindtap="SortDefendRoutine" data-type="2">成功率</view>
+      <view class="AttackCount"  bindtap="SortDefendRoutine" data-type="3">次数</view>
+      <view class="BtnAdd">增加</view>
+      <view class="BtnReduce">减少</view>
+      <view class="Space"></view>
+    </view>
+
+    <scroll-view scroll-y="false" class="RoutineList" style="height: 185px;">
+      <view class="Routine" wx:for="{{aOpponentRoutineArray}}" wx:key="ID" wx:for-index="index" wx:for-item="item">
+        <view class='Routine1' wx:if="{{index%2==0}}">
+          <view class="Space"></view>
+          <view class="Name"> {{item.strRoutineName}}</view>
+          <view class="JoinList"> {{item.strJoinList}}</view>
+          <view class="Rate" wx:if="{{item.iIsMarking==0}}"> {{item.fRate}}%</view>
+          <view class="RateMarking"  wx:elif="{{item.iIsMarking==1}}"> {{item.fRate}}%</view>
+          <view class="UsedCount"> {{item.iDefendCount}}</view>
+          <button class="BtnAdd" bindtap="AddDefendCount" size="mini" data-strroutinename="{{item.strRoutineName}}">+</button>
+          <button class="BtnReduce" bindtap="ReduceDefendCount" size="mini" data-strroutinename="{{item.strRoutineName}}">-</button>
+          <view class="Space"></view>
+        </view>
+        <view class='Routine1Desc' wx:if="{{index%2==0}}">[{{item.strName}}] {{item.strDesc}}</view>
+
+        <view class='Routine2' wx:if="{{index%2==1}}">
+          <view class="Space"></view>
+          <view class="Name"> {{item.strRoutineName}}</view>
+          <view class="JoinList"> {{item.strJoinList}}</view>
+          <view class="Rate" wx:if="{{item.iIsMarking==0}}"> {{item.fRate}}%</view>
+          <view class="RateMarking"  wx:elif="{{item.iIsMarking==1}}"> {{item.fRate}}%</view>
+          <view class="UsedCount"> {{item.iDefendCount}}</view>
+          <button class="BtnAdd" bindtap="AddDefendCount" size="mini" data-strroutinename="{{item.strRoutineName}}">+</button>
+          <button class="BtnReduce" bindtap="ReduceDefendCount" size="mini" data-strroutinename="{{item.strRoutineName}}">-</button>
+          <view class="Space"></view>
+        </view>
+        <view class='Routine2Desc' wx:if="{{index%2==1}}">[{{item.strName}}] {{item.strDesc}}</view>
+      </view>
+    </scroll-view>
+
+  </view>
+</view>
+
+
+
+
+
+
+<!-- text>pages/formation/formation.wxml</text -->

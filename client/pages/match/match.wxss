@@ -1,0 +1,564 @@
+
+.Test1
+{
+  /*最大宽度和高度*/
+  width: 360px;
+  height: 560px;  
+  background-color:#D2691E;
+}
+
+/*========================通用=============================================*/
+.SmallSplit {
+  height: 4px;
+  background-color:#FFFFFF;
+}
+.BigSplit {
+  height: 8px;
+  background-color:#FFFFFF;
+}
+.DisableView {
+  display: none;
+}
+
+/*========================第一层布局=============================================*/
+/*width:306; height:540 */
+.TopHalfRegion
+{
+  width: 360px;
+  height: 310px;  
+  background-color:#FFFFFF;
+}
+
+.MiddleRegion
+{
+  width: 360px;
+  height: 35px;  
+  background-color:#FFFFFF;
+}
+
+.ButtomHalfRegion
+{
+  width: 360px;
+  height: 160px;  
+  background-color:#FFFFFF;
+}
+
+/*========================第二层上半部分布局=============================================*/
+
+.InfoButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.InfoButton .InfoSelect {
+  font-size: 13px;
+  width:65px;
+  text-align: center; 
+  color: #FFFFFF;
+  background-color: #D2691E
+}
+.InfoButton .InfoNotSelect {
+  font-size: 13px;
+  width:65px;
+  text-align: center; 
+}
+.InfoButton .FuncBtn {
+  font-size: 13px;
+  width:65px;
+  text-align: center; 
+  color: #000000;
+  background-color: #87CEFA;
+}
+.InfoButton .FuncBtnPressed {
+  font-size: 13px;
+  width:65px;
+  text-align: center; 
+  color: #DCDCDC;
+  background-color: #87CEFA;
+}
+.InfoButton .ButtonSpace {
+  width:70px;
+  background-color: #FFFFFF;
+}
+
+.MatchCanvas {
+  width: 340px;
+  height: 236px;
+  background-color: #228B22;
+  border-left:10px solid #FFFFFF/*#228B22*/;
+  border-right:10px solid #FFFFFF/*#228B22*/;
+}
+
+.CommentarySpec
+{
+  width: 340px;
+  height: 54px;
+  align-items: center;
+  justify-content: center;
+  text-align: center; 
+  font-size: 14px;
+  line-height:200%;
+  margin-left: 10px;
+}
+.CommentarySpec .CommentarySystem
+{
+  color: #000000;
+  background-color:#87CEFA;
+}
+.CommentarySpec .CommentarySystem2
+{
+  color:#87CEFA;
+  background-color:#000000;
+}
+.CommentarySpec .CommentarySystem3
+{
+  color: #000000;
+  background-color:#C0C0C0;
+}
+.CommentarySpec .CommentarySystem4
+{
+  color: #C0C0C0;
+  background-color:#000000;
+}
+
+.CommentarySpec .UsedRoutine
+{
+  color: #000000;
+  /*background-color:#DCDCDC;*/
+  background-color:#FFFFFF;
+  line-height:150%;
+}
+
+/*========================第二层中部布局=============================================*/
+
+.ScoreShow {
+  width: 360px;
+  line-height:200%;
+  /*background-color:#FFA500;*/
+  /*background-color:#87CEFA;浅蓝*/
+  background-color:#FFFFFF;/*深橙*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ScoreShow .Split {
+  width: 30px;
+}
+
+.ScoreShow .TeamName1 {
+  width: 80px;
+  font-size: 15px;
+  text-align: center; 
+  color: #D2691E;
+  font-weight: bold;
+}
+.ScoreShow .TeamName2 {
+  width: 80px;
+  font-size: 15px;
+  text-align: center; 
+  color: #228B22;
+  font-weight: bold;
+}
+
+.ScoreShow .TeamScore1 {
+  width: 40px;
+  font-size: 17px;
+  text-align: center; 
+  color: #D2691E;
+  font-weight: bold;
+}
+.ScoreShow .TeamScore2 {
+  width: 40px;
+  font-size: 17px;
+  text-align: center; 
+  color: #228B22;
+  font-weight: bold;
+}
+.ScoreShow .Time {
+  width: 60px;
+  font-size: 15px;
+  text-align: center; 
+  color: #696969;
+  background-color:#DCDCDC;
+  line-height:180%;
+  font-weight: bold;
+  border-radius: 10px
+}
+
+/*========================第二层下半部分布局=============================================*/
+
+
+/*========================第二层下半部分  显示比赛数据=============================================*/
+.ShowData
+{
+  font-size: 15px;
+}
+
+.ShowData .ContrastData1
+{
+  width: 360px;
+  align-items: center;
+  justify-content: center;
+  line-height:150%;
+  display: flex;
+}
+
+.ShowData .ContrastData2
+{
+  width: 360px;
+  align-items: center;
+  justify-content: center;
+  line-height:150%;
+  display: flex;
+}
+
+.ShowData .ContrastData1 .LeftSide
+{
+  text-align: center; 
+  flex: 130px;
+  background-color:#DCDCDC;
+}
+.ShowData .ContrastData1 .Middle
+{
+  text-align: center; 
+  flex: 80px;
+  background-color:#DCDCDC;
+}
+.ShowData .ContrastData1 .RightSide
+{
+  text-align: center; 
+  flex: 130px;
+  background-color:#DCDCDC;
+}
+.ShowData .ContrastData1 .Split {
+  width: 10px;
+  background-color:#FFFFFF;
+}
+
+.ShowData .ContrastData2 .LeftSide
+{
+  text-align: center; 
+  flex: 130px;
+  background-color:#FFFFFF;
+}
+.ShowData .ContrastData2 .Middle
+{
+  text-align: center; 
+  flex: 80px;
+  background-color:#FFFFFF;
+}
+.ShowData .ContrastData2 .RightSide
+{
+  text-align: center; 
+  flex: 130px;
+  background-color:#FFFFFF;
+}
+.ShowData .ContrastData2 .Split {
+  width: 10px;
+  background-color:#FFFFFF;
+}
+
+
+.ShowData .FootmanColumn {
+  display: flex;
+  font-size: 13px;
+  text-align: center; 
+  width: 360px;
+  border-left:5px solid #FFFFFF;
+  /*border-right:5px solid #FFFFFF; 不起作用*/
+}
+.ShowData .FootmanColumn .Name {
+  flex: 100px;
+  
+}
+.ShowData .FootmanColumn .PerformData {
+  flex: 30px;
+}
+.ShowData .FootmanColumn .PerformData2 {
+  flex: 60px;
+}
+.ShowData .FootmanColumn .Space {
+  flex: 45px;
+  
+}
+
+.ShowData .FootmanList {
+  width: 350px;
+  border-left:5px solid #FFFFFF;
+  border-right:5px solid #FFFFFF;
+}
+
+.ShowData .FootmanList .Footman {
+  width: 335px;
+  line-height:120%;
+  text-align: left; 
+}
+
+.ShowData .FootmanList .Footman .Footman1 {
+  display: flex;
+  background-color:#DCDCDC;
+}
+
+.ShowData .FootmanList .Footman .Footman2 {
+  display: flex;
+  background-color:#FFFFFF;
+}
+
+.ShowData .FootmanList .Footman .Name {
+  flex: 100px;
+  font-size: 16px;
+  color: #000000;
+  text-align: left; 
+}
+
+.ShowData .FootmanList .Footman .Name2 {
+  flex: 100px;
+  font-size: 16px;
+  color: #A9A9A9;
+  text-align: left; 
+}
+
+.ShowData .FootmanList .Footman .PerformData {
+  flex: 30px;
+  font-size: 16px;
+  text-align: center; 
+}
+
+.ShowData .FootmanList .Footman .PerformData2 {
+  flex: 60px;
+  font-size: 16px;
+  text-align: center; 
+}
+
+
+.ShowData .FootmanList .Footman .Space {
+  flex: 25;
+}
+
+
+/*========================第二层下半部分  显示动作数据=============================================*/
+
+.ProcedureColumn {
+  display: flex;
+  width: 325px;
+  font-size: 13px;
+  align-items: center;
+  justify-content: center;
+  text-align: center; 
+  border-left:10px solid #FFFFFF;
+  border-right:10px solid #FFFFFF;
+  /*border-right:5px solid #FFFFFF; 不起作用*/
+}
+.ProcedureColumn .ProcedureName {
+  flex: 90px;
+}
+.ProcedureColumn .TotalCount {
+  flex: 35px;
+}
+.ProcedureColumn .SucceedCount {
+  flex: 35px;
+}
+.ProcedureColumn .SucceedRate {
+  flex: 50px;
+}
+.ProcedureColumn .MostDoName {
+  flex: 100px;
+}
+.ProcedureColumn .Space {
+  flex: 15px;
+}
+
+.ProcedureList {
+  width: 340px; /*340px*/
+  /*height: 200px;*/
+  background-color:#FFFFFF;
+  border-left:10px solid #FFFFFF;
+  border-right:10px solid #FFFFFF;
+  white-space:nowrap;
+}
+
+.Procedure 
+{
+  width: 325px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center; 
+  font-size: 14px;
+  line-height:150%;
+}
+
+.Procedure1 
+{
+  display: flex;
+  color: #000000;
+  background-color:#DCDCDC;
+}
+
+.Procedure2 
+{
+  display: flex;
+  color: #000000;
+  background-color:#FFFFFF;
+}
+.Procedure .ProcedureName {
+  flex: 90px;
+}
+.Procedure .TotalCount {
+  flex: 35px;
+}
+.Procedure .SucceedCount {
+  flex: 35px;
+}
+.Procedure .SucceedRate {
+  flex: 50px;
+}
+.Procedure .MostDoName {
+  flex: 100px;
+}
+.Procedure .Space {
+  flex: 15px;
+}
+
+
+/*========================第二层下半部分  显示套路数据=============================================*/
+
+.RoutineColumn {
+  display: flex;
+  width: 325px;
+  font-size: 13px;
+  align-items: center;
+  justify-content: center;
+  text-align: center; 
+  border-left:10px solid #FFFFFF;
+  border-right:10px solid #FFFFFF;
+  /*border-right:5px solid #FFFFFF; 不起作用*/
+}
+.RoutineColumn .RoutineName {
+  flex: 90px;
+}
+.RoutineColumn .TotalCount {
+  flex: 35px;
+}
+.RoutineColumn .SucceedCount {
+  flex: 35px;
+}
+.RoutineColumn .AverageProgram {
+  flex: 70px;
+}
+.RoutineColumn .Space {
+  flex: 95px;
+}
+
+.RoutineList {
+  width: 340px; /*340px*/
+  /*height: 200px;*/
+  background-color:#FFFFFF;
+  border-left:10px solid #FFFFFF;
+  border-right:10px solid #FFFFFF;
+  white-space:nowrap;
+}
+
+.Routine 
+{
+  width: 325px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center; 
+  font-size: 14px;
+  line-height:150%;
+}
+
+.Routine1 
+{
+  display: flex;
+  color: #000000;
+  background-color:#DCDCDC;
+}
+
+.Routine2 
+{
+  display: flex;
+  color: #000000;
+  background-color:#FFFFFF;
+}
+.Routine .RoutineName {
+  flex: 90px;
+}
+.Routine .TotalCount {
+  flex: 35px;
+}
+.Routine .SucceedCount {
+  flex: 35px;
+}
+.Routine .AverageProgram {
+  flex: 70px;
+}
+.Routine .Space {
+  flex: 95px;
+}
+
+/*========================第二层下半部分  显示解说=============================================*/
+.CommentaryList {
+  width: 340px; /*340px*/
+  /*height: 200px;*/
+  background-color:#FFFFFF;
+  border-left:10px solid #FFFFFF;
+  border-right:10px solid #FFFFFF;
+  white-space:nowrap;
+}
+
+/*
+::-webkit-scrollbar {
+  width: 20px;
+  height: 200px;
+  background-color: transparent;
+  color: transparent;
+}
+*/
+
+.ShowCommentary
+{
+}
+
+.Commentary 
+{
+  width: 325px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: left; 
+  font-size: 14px;
+  line-height:150%;
+}
+
+.CommentarySub 
+{
+  background-color:#FFFFFF;
+}
+
+.CommentarySystem
+{
+  background-color:#87CEFA;
+}
+
+.CommentarySelf
+{
+  background-color:#FFFFFF;
+}
+.CommentarySelfGoal
+{
+  background-color:#D2691E;
+}
+
+.CommentaryOpponent
+{
+  background-color:#DCDCDC;
+}
+
+.CommentaryOpponentGoal
+{
+  background-color:#32CD32;
+}

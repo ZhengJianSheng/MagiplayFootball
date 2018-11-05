@@ -1,0 +1,281 @@
+
+
+<!-- view class="Test1"></view-->
+
+<view class="{{iBigShowType==0?TopHalfRegion:TopHalfRegion1}}">
+  <view class="InfoButton">
+    <button class="{{iInfoIndex==0?'InfoSelect':'InfoNotSelect'}}" size="mini" bindtap="ChangeInfoIndex" data-index="0">实时</button>
+    <button class="{{iInfoIndex==1?'InfoSelect':'InfoNotSelect'}}" size="mini" bindtap="ChangeInfoIndex" data-index="1">体力</button>
+    <button class="{{iInfoIndex==2?'InfoSelect':'InfoNotSelect'}}" size="mini" bindtap="ChangeInfoIndex" data-index="2">进球</button>
+    <button class="{{iInfoIndex==3?'InfoSelect':'InfoNotSelect'}}" size="mini" bindtap="ChangeInfoIndex" data-index="3">对方</button>
+    <button class="{{iWaitingAdust==0?'FuncBtn':'FuncBtnPressed'}}" size="mini" bindtap="AdjustTactics">{{strAdustButtonShow}}</button>
+  </view>
+  <view class="SmallSplit"></view>
+
+  <canvas class="MatchCanvas" canvas-id="matchcanvas"></canvas>
+  <view class="SmallSplit"></view>
+
+  <view class="CommentarySpec" wx:if="{{iBigShowType==0}}" style="height: 54px">
+    <view class="CommentarySystem" wx:if="{{iShowHoldBallIndex==0&&dCurShowCommentary.iType!=1||iGoalCounting%2==1}}">{{dCurShowCommentary.strText}}</view>
+    <view class="CommentarySystem2" wx:elif="{{iShowHoldBallIndex==0&&dCurShowCommentary.iType==1&&iGoalCounting%2==0}}">{{dCurShowCommentary.strText}}</view>
+    <view class="CommentarySystem3" wx:elif="{{iShowHoldBallIndex==1&&dCurShowCommentary.iType!=1||iGoalCounting%2==1}}">{{dCurShowCommentary.strText}}</view>
+    <view class="CommentarySystem4" wx:elif="{{iShowHoldBallIndex==1&&dCurShowCommentary.iType==1&&iGoalCounting%2==0}}">{{dCurShowCommentary.strText}}</view>
+    <!-- view class="SmallSplit"></view -->
+    <view class="UsedRoutine">{{strUsedRoutineText}}</view>
+  </view>
+  <!-- view class="SmallSplit"></view -->
+  <!-- view wx:else  style="height: 0px"></view -->
+</view>
+
+<!-- view class="MiddleRegion" -->
+<view class="{{(iBigShowType==0&&iShowDataSubType==0)?'MiddleRegion':'DisableView'}}">
+  <view class="ScoreShow">
+    <view class="Split"></view>
+    <view class="TeamName1">{{aShowMatchingDataArray[0].strChinese}}</view>
+    <view class="TeamScore1">{{aShowMatchingDataArray[0].iScore}}</view>
+    <view class="Time">{{strMinute}}:{{strSecond}}</view>
+    <view class="TeamScore2">{{aShowMatchingDataArray[1].iScore}}</view>
+    <view class="TeamName2">{{aShowMatchingDataArray[1].strChinese}}</view>
+    <view class="Split"></view>
+  </view>
+  <view class="SmallSplit"></view>
+</view>
+
+<view class="ButtomHalfRegion">
+  <!--  显示队伍比赛数据  -->
+  <view class="{{iBigShowType==0?'ShowData':'DisableView'}}">
+    <view class="{{iShowDataSubType==0?'ShowDataTeam':'DisableView'}}"  style="height: 128px">
+      <view class="ContrastData1">
+        <view class="Split"></view><view class="LeftSide">{{mTeamPerform.iShot}}</view><view class="Middle">射门</view><view                    class="RightSide">{{mOpponentTeamPerform.iShot}}</view>
+        <view class="Split"></view>
+      </view>
+      <view class="ContrastData2">
+        <view class="Split"></view><view class="LeftSide">{{mTeamPerform.iShotOnTarget}}</view><view class="Middle">射正</view><view class="RightSide">{{mOpponentTeamPerform.iShotOnTarget}}</view>
+        <view class="Split"></view>
+      </view>
+      <view class="ContrastData1">
+        <view class="Split"></view><view class="LeftSide">{{mTeamPerform.fControlPercent}}</view><view class="Middle">控球</view><view class="RightSide">{{mOpponentTeamPerform.fControlPercent}}</view>
+        <view class="Split"></view>
+      </view>
+      <view class="ContrastData2">
+        <view class="Split"></view><view class="LeftSide">{{mTeamPerform.iPassTotal}}/{{mTeamPerform.iPassSucceed}}/{{mTeamPerform.strPassPercent}}</view><view class="Middle">传球成功</view><view class="RightSide">{{mOpponentTeamPerform.iPassTotal}}/{{mOpponentTeamPerform.iPassSucceed}}/{{mOpponentTeamPerform.strPassPercent}}</view>
+        <view class="Split"></view>
+      </view>
+      <view class="ContrastData1">
+        <view class="Split"></view><view class="LeftSide">{{mTeamPerform.iTackling}}</view><view class="Middle">抢断</view><view class="RightSide">{{mOpponentTeamPerform.iTackling}}</view>
+        <view class="Split"></view>
+      </view>
+      <view class="ContrastData2">
+        <view class="Split"></view><view class="LeftSide">0</view><view class="Middle">黄牌</view><view class="RightSide">0</view>
+        <view class="Split"></view>
+      </view>
+
+    </view> 
+
+    <!--  显示我方球员比赛数据  -->
+    <view class="{{iShowDataSubType==1?'ShowDataFootman':'DisableView'}}"  style="height: 163px">
+      <view class='FootmanColumn' style="height: 15px;">
+        <view class="Name" bindtap="SortPerformData" data-type="1" >名字</view>
+        <view class="PerformData2" bindtap="SortPerformData" data-type="2" >传球/成功</view>
+        <view class="PerformData" bindtap="SortPerformData" data-type="3" >助攻</view>
+        <view class="PerformData" bindtap="SortPerformData" data-type="4" >射门</view>
+        <view class="PerformData" bindtap="SortPerformData" data-type="5" >进球</view>
+        <view class="PerformData" bindtap="SortPerformData" data-type="6" >抢断</view>
+        <view class="PerformData" bindtap="SortPerformData" data-type="7" >体力</view>
+        <view class="Space"></view>
+      </view>
+      <view class="SmallSplit"></view>
+
+      <scroll-view scroll-y="false" class="FootmanList" style="height: 143px;">
+        <view class="Footman" wx:for="{{aFootmanPerform}}" wx:key="ID" wx:for-index="index" wx:for-item="item">
+          <view class='Footman1' wx:if="{{index%2==0}}">
+            <view class="Name" wx:if="{{item.iFieldStatus!=2}}">{{item.strName}}</view>
+            <view class="Name2" wx:elif="{{item.iFieldStatus==2}}">{{item.strName}}</view>
+            <view class="PerformData2">{{item.iPassSucceed+item.iPassFail}}/{{item.iPassSucceed}}</view>
+            <view class="PerformData">{{item.iAssist}}</view>
+            <view class="PerformData">{{item.iShot}}</view>
+            <view class="PerformData">{{item.iGoal}}</view>
+            <view class="PerformData">{{item.iTackling}}</view>
+            <view class="PerformData">{{item.strPhysicalPower}}</view>
+            <view class="Space"></view>
+          </view>
+          <view class='Footman2' wx:elif="{{index%2==1}}">
+            <view class="Name" wx:if="{{item.iFieldStatus!=2}}">{{item.strName}}</view>
+            <view class="Name2" wx:elif="{{item.iFieldStatus==2}}">{{item.strName}}</view>
+            <view class="PerformData2">{{item.iPassSucceed+item.iPassFail}}/{{item.iPassSucceed}}</view>
+            <view class="PerformData">{{item.iAssist}}</view>
+            <view class="PerformData">{{item.iShot}}</view>
+            <view class="PerformData">{{item.iGoal}}</view>
+            <view class="PerformData">{{item.iTackling}}</view>
+            <view class="PerformData">{{item.strPhysicalPower}}</view>
+            <view class="Space"></view>
+          </view>
+        </view>
+      </scroll-view>
+    </view> 
+
+    <!--  显示对方球员比赛数据  -->
+    <view class="{{iShowDataSubType==2?'ShowDataOpponent':'DisableView'}}"  style="height: 163px">
+      <view class='FootmanColumn' style="height: 15px;">
+        <view class="Name" bindtap="SortPerformData" data-type="11" >名字</view>
+        <view class="PerformData2" bindtap="SortPerformData" data-type="12" >传球/成功</view>
+        <view class="PerformData" bindtap="SortPerformData" data-type="13" >助攻</view>
+        <view class="PerformData" bindtap="SortPerformData" data-type="14" >射门</view>
+        <view class="PerformData" bindtap="SortPerformData" data-type="15" >进球</view>
+        <view class="PerformData" bindtap="SortPerformData" data-type="16" >抢断</view>
+        <view class="PerformData" bindtap="SortPerformData" data-type="17" >体力</view>
+        <view class="Space"></view>
+      </view>
+      <view class="SmallSplit"></view>
+
+      <scroll-view scroll-y="false" class="FootmanList" style="height: 143px;">
+        <view class="Footman" wx:for="{{aOpponentFootmanPerform}}" wx:key="ID" wx:for-index="index" wx:for-item="item">
+          <view class='Footman1' wx:if="{{index%2==0}}">
+            <view class="Name" wx:if="{{item.iFieldStatus!=2}}">{{item.strName}}</view>
+            <view class="Name2" wx:elif="{{item.iFieldStatus==2}}">{{item.strName}}</view>
+            <view class="PerformData2">{{item.iPassSucceed+item.iPassFail}}/{{item.iPassSucceed}}</view>
+            <view class="PerformData">{{item.iAssist}}</view>
+            <view class="PerformData">{{item.iShot}}</view>
+            <view class="PerformData">{{item.iGoal}}</view>
+            <view class="PerformData">{{item.iTackling}}</view>
+            <view class="PerformData">{{item.strPhysicalPower}}</view>
+            <view class="Space"></view>
+          </view>
+          <view class='Footman2' wx:elif="{{index%2==1}}">
+            <view class="Name" wx:if="{{item.iFieldStatus!=2}}">{{item.strName}}</view>
+            <view class="Name2" wx:elif="{{item.iFieldStatus==2}}">{{item.strName}}</view>
+            <view class="PerformData2">{{item.iPassSucceed+item.iPassFail}}/{{item.iPassSucceed}}</view>
+            <view class="PerformData">{{item.iAssist}}</view>
+            <view class="PerformData">{{item.iShot}}</view>
+            <view class="PerformData">{{item.iGoal}}</view>
+            <view class="PerformData">{{item.iTackling}}</view>
+            <view class="PerformData">{{item.strPhysicalPower}}</view>
+            <view class="Space"></view>
+          </view>
+        </view>
+      </scroll-view>
+    </view> 
+    <view class="SmallSplit"></view>
+
+    <view class="InfoButton">
+      <button class="FuncBtn" size="mini" bindtap="ChangeBigShowType">数据</button>
+      <button class="{{iShowDataSubType==0?'InfoSelect':'InfoNotSelect'}}" size="mini" bindtap="ChangeShowDataSubType" data-index="0">球队</button>
+      <button class="{{iShowDataSubType==1?'InfoSelect':'InfoNotSelect'}}" size="mini" bindtap="ChangeShowDataSubType" data-index="1">已方</button>
+      <button class="{{iShowDataSubType==2?'InfoSelect':'InfoNotSelect'}}" size="mini" bindtap="ChangeShowDataSubType" data-index="2">对方</button>
+      <button class="FuncBtn" size="mini" bindtap="ChangeMatchStatus">{{strMatchStatusDesc}}</button>
+    </view>
+  </view>
+
+  <!--  显示动作Procedure成功率  -->
+  <view class="{{iBigShowType==1?'ShowProcedure':'DisableView'}}">
+    <view class='ProcedureColumn' style="height: 15px;">
+      <view class="ProcedureName">动作名字</view>
+      <view class="TotalCount">次数</view>
+      <view class="SucceedCount">成功</view>
+      <view class="SucceedRate">成功率</view>
+      <view class="MostDoName">使用最多</view>
+      <view class="Space"></view>
+    </view>
+    <view class="SmallSplit"></view>
+
+    <scroll-view scroll-y="true" class="ProcedureList" style="height: 198px">
+      <view class="Procedure" wx:for="{{aShowProcedureArray}}" wx:key="ID" wx:for-index="index" wx:for-item="item">
+        <view class='Procedure1' wx:if="{{index%2==0}}">
+          <view class="ProcedureName">{{item.strChinese}}</view>
+          <view class="TotalCount">{{item.iTotalCount}}</view>
+          <view class="SucceedCount">{{item.iSucceedCount}}</view>
+          <view class="SucceedRate">{{item.strSucceedRate}}</view>
+          <view class="MostDoName">{{item.strMostDoName}}</view>
+          <view class="Space"></view>
+        </view>
+        <view class='Procedure2' wx:elif="{{index%2==1}}">
+          <view class="ProcedureName">{{item.strChinese}}</view>
+          <view class="TotalCount">{{item.iTotalCount}}</view>
+          <view class="SucceedCount">{{item.iSucceedCount}}</view>
+          <view class="SucceedRate">{{item.strSucceedRate}}</view>
+          <view class="MostDoName">{{item.strMostDoName}}</view>
+          <view class="Space"></view>
+        </view>
+      </view> 
+    </scroll-view>
+    <view class="SmallSplit"></view>
+
+    <view class="InfoButton">
+      <button class="FuncBtn" size="mini" bindtap="ChangeBigShowType">动作</button>
+      <button class="{{iShowProcedureType==0?'InfoSelect':'InfoNotSelect'}}" size="mini" bindtap="ChangeShowProcedure" data-index="0">已方</button>
+      <button class="{{iShowProcedureType==1?'InfoSelect':'InfoNotSelect'}}" size="mini" bindtap="ChangeShowProcedure" data-index="1">对方</button>
+      <view class="ButtonSpace"></view>
+      <button class="FuncBtn" size="mini" bindtap="ChangeMatchStatus">{{strMatchStatusDesc}}</button>
+    </view>
+  </view>
+
+  <!--  显示动作Routine成功率  -->
+  <view class="{{iBigShowType==2?'ShowRoutine':'DisableView'}}">
+    <view class='RoutineColumn' style="height: 15px;">
+      <view class="RoutineName">套路名字</view>
+      <view class="TotalCount">次数</view>
+      <view class="SucceedCount">成功</view>
+      <view class="AverageProgram">平均完成度</view>
+      <view class="Space"></view>
+    </view>
+    <view class="SmallSplit"></view>
+
+    <scroll-view scroll-y="true" class="RoutineList" style="height: 198px">
+      <view class="Routine" wx:for="{{aShowRoutineArray}}" wx:key="ID" wx:for-index="index" wx:for-item="item">
+        <view class='Routine1' wx:if="{{index%2==0}}">
+          <view class="RoutineName">{{item.strRoutineName}}</view>
+          <view class="TotalCount">{{item.iTotalCount}}</view>
+          <view class="SucceedCount">{{item.iSucceedCount}}</view>
+          <view class="AverageProgram">{{item.strAverageProgram}}</view>
+          <view class="Space"></view>
+        </view>
+        <view class='Routine2' wx:elif="{{index%2==1}}">
+          <view class="RoutineName">{{item.strRoutineName}}</view>
+          <view class="TotalCount">{{item.iTotalCount}}</view>
+          <view class="SucceedCount">{{item.iSucceedCount}}</view>
+          <view class="AverageProgram">{{item.strAverageProgram}}</view>
+          <view class="Space"></view>
+        </view>
+      </view> 
+    </scroll-view>
+    <view class="SmallSplit"></view>
+
+    <view class="InfoButton">
+      <button class="FuncBtn" size="mini" bindtap="ChangeBigShowType">套路</button>
+      <button class="{{iShowRoutineType==0?'InfoSelect':'InfoNotSelect'}}" size="mini" bindtap="ChangeShowRoutine" data-index="0">已方</button>
+      <button class="{{iShowRoutineType==1?'InfoSelect':'InfoNotSelect'}}" size="mini" bindtap="ChangeShowRoutine" data-index="1">对方</button>
+      <view class="ButtonSpace"></view>
+      <button class="FuncBtn" size="mini" bindtap="ChangeMatchStatus">{{strMatchStatusDesc}}</button>
+    </view>
+  </view>
+
+  <!--  显示解说  -->
+  <view class="{{iBigShowType==3?'ShowCommentary':'DisableView'}}">
+    <scroll-view scroll-y="true" class="CommentaryList" style="height: 217px" scroll-top="{{iScrollTop}}">
+      <view class="Commentary" wx:for="{{aShowCommentaryArray}}" wx:key="ID" wx:for-index="index" wx:for-item="item">
+        <view class="CommentarySelfGoal" wx:if="{{item.iType==1&&iShowGoal==1&&item.iTeamID==1}}">[{{item.strMinute}}:{{item.strSecond}}] {{item.strText}}</view>
+        <view class="CommentarySelf" wx:if="{{item.iType==2&&iShowHighlight==1&&item.iTeamID==1}}">[{{item.strMinute}}:{{item.strSecond}}] {{item.strText}}</view>
+        <view class="CommentarySelf" wx:if="{{item.iType==3&&iShowAssist==1&&item.iTeamID==1}}" >[{{item.strMinute}}:{{item.strSecond}}] {{item.strText}}</view>
+        <view class="CommentarySystem" wx:if="{{item.iType==4&&iShowSystem==1}}">[{{item.strMinute}}:{{item.strSecond}}] {{item.strText}}</view>
+
+        <view class="CommentaryOpponentGoal" wx:if="{{item.iType==1&&iShowGoal==1&&item.iTeamID==2}}">[{{item.strMinute}}:{{item.strSecond}}] {{item.strText}}</view>
+        <view class="CommentaryOpponent" wx:if="{{item.iType==2&&iShowHighlight==1&&item.iTeamID==2}}">[{{item.strMinute}}:{{item.strSecond}}] {{item.strText}}</view>
+
+        <view class="DisableView" wx:else></view>
+      </view> 
+    </scroll-view>
+    <view class="SmallSplit"></view>
+
+    <view class="InfoButton">
+      <button class="FuncBtn" size="mini" bindtap="ChangeBigShowType">解说</button>
+      <button class="{{iShowGoal==1?'InfoSelect':'InfoNotSelect'}}" size="mini" bindtap="SetCommentaryShow" data-index="0">进球</button>
+      <button class="{{iShowHighlight==1?'InfoSelect':'InfoNotSelect'}}" size="mini" bindtap="SetCommentaryShow" data-index="1">亮点</button>
+      <!-- button class="{{iShowAssist==1?'InfoSelect':'InfoNotSelect'}}" size="mini" bindtap="SetCommentaryShow" data-index="2">助教</button-->
+      <button class="{{iShowSystem==1?'InfoSelect':'InfoNotSelect'}}" size="mini" bindtap="SetCommentaryShow" data-index="3">系统</button>
+      <button class="FuncBtn" size="mini" bindtap="ChangeMatchStatus">{{strMatchStatusDesc}}</button>
+    </view>
+  </view>
+
+  
+  
+</view>

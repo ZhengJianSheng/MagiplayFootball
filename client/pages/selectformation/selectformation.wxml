@@ -1,0 +1,5 @@
+<!--pages/selectteam/selectteam.wxml-->
+
+<view class="FormationName" wx:for="{{aSelectArray}}" wx:key="ID" wx:for-index="index" wx:for-item="item" bindtap="ClickFormation">
+  <button class="FormationName1" size="default"  data-index="{{index}}">{{item.strChinese}}</button>
+</view>
